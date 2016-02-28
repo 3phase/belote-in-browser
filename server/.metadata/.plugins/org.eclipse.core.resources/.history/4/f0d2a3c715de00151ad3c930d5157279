@@ -1,0 +1,14 @@
+package org.phase.game.entities;
+
+import java.util.ArrayDeque;
+import java.util.Deque;
+
+public class Player {
+
+	private long playerId;
+	private Deque<Card> deque = new ArrayDeque<Card>();
+	private Team team;
+	
+	public void 
+	
+}
