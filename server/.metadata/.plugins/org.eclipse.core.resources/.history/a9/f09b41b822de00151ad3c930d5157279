@@ -16,9 +16,7 @@ public class Table {
 		Iterator<Card> it = cards_on_table.iterator();
 		while (it.hasNext()) {
 			winning_team.add_card_to_won_cards(it.next());
-		}
-		while (it.hasNext()) {
-			cards_on_table.pop();
+			
 		}
 	}
 	

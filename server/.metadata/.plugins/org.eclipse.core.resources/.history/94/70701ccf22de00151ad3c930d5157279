@@ -17,9 +17,6 @@ public class Table {
 		while (it.hasNext()) {
 			winning_team.add_card_to_won_cards(it.next());
 		}
-		while (it.hasNext()) {
-			cards_on_table.pop();
-		}
 	}
 	
 }

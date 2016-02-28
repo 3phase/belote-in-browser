@@ -1,0 +1,11 @@
+package org.phase.game.entities;
+
+import java.util.Stack;
+
+public class Table {
+
+	private Stack<Card> won_cards = new Stack<Card>();
+	
+	
+	
+}
