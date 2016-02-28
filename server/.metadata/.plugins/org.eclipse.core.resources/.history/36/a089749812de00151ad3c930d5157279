@@ -1,0 +1,8 @@
+package org.phase.game.entities;
+
+public class Team {
+
+	private long teamId;
+	
+	
+}

@@ -1,0 +1,41 @@
+package org.phase.game.entities;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Room {
+	
+	private long roomId;
+	private int status = 0;
+	private List<Team> teams = new ArrayList<Team>();
+	private Game game = new Game();
+	
+	public void add_team(Team team) throws Exception {
+		if (teams.size() < 2) {
+			teams.add(team);
+		} else {
+			throw new Exception("A limit of two teams is present.");
+		}
+	}
+	
+	public void remove_team(Team team) throws Exception {
+		if (status == 0) {
+			teams.remove(team);
+		} else {
+			throw new Exception("A team cannot be removed while the game is running.");
+		}
+	}
+	
+	public int start_game() {
+		if (teams.size() == 2) {
+			status = 1;
+			return 1;
+		}
+		return 0;
+	}
+	
+	public int get_status() {
+		return status;
+	}
+	
+}

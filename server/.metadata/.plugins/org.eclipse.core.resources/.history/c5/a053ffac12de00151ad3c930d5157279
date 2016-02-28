@@ -1,0 +1,13 @@
+package org.phase.game.entities;
+
+public class Team {
+
+	private long teamId;
+	private Player player1;
+	private Player player2;
+	
+	public String get_player_name() {
+		
+	}
+	
+}
