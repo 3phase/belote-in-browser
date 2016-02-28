@@ -1,6 +1,8 @@
 package org.phase.game.entities;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
 
 public class Team {
@@ -8,6 +10,7 @@ public class Team {
 	private long teamId;
 	private List<Player> players = new ArrayList<Player>();
 	private int ready = 0;
+	private Deque<Card> won_cards = new ArrayDeque<Card>();
 	
 	public void new_player(Player player) throws Exception {
 		if (players.size() < 2) {
@@ -21,9 +24,16 @@ public class Team {
 		}
 	}
 	
+	public long get_team_id() {
+		return teamId;
+	}
+	
 	public int if_ready() {
 		return ready;
 	}
 	
+	public void add_card_to_won_cards(Card card) {
+		won_cards.addLast(card);
+	}
 	
 }

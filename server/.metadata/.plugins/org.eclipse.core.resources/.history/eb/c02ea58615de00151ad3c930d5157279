@@ -1,0 +1,11 @@
+package org.phase.game.entities;
+
+public class Player {
+
+	private long playerId;
+	private Deque<Card> deque = new Deque<>;
+	private Team team;
+	
+	
+	
+}

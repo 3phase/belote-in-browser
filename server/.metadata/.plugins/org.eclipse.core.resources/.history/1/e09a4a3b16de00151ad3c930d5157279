@@ -1,0 +1,25 @@
+package org.phase.game.entities;
+
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.List;
+
+public class Player {
+
+	private long playerId;
+	private Deque<Card> card_deque = new ArrayDeque<Card>();
+	private Team team;
+	
+	public void assign_cards_first_distribution(List<Card> cards) throws Exception {
+		if (cards.size() != 5) {
+			throw new Exception("First distribution should contain 5 cards");
+		}
+		if (!team.if_ready()) {
+			throw new Exception("");
+		}
+		for (Card card : cards) {
+			card_deque.addLast(card);
+		}
+	}
+	
+}
