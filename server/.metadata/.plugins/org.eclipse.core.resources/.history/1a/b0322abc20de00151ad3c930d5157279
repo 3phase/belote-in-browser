@@ -1,0 +1,53 @@
+package org.phase.game.entities;
+
+import java.util.List;
+
+public class Game {
+
+	private long gameId;
+	private long announce;
+	private int team_one_result;
+	private int team_two_result;
+	private Table table = new Table();
+	private Team announcing_team;
+	private Team[] teams;
+	
+	public Game(int t1res, int t2res, List<Team> teams_) {
+		team_one_result = t1res;
+		team_two_result = t2res;
+		int num = 0;
+		for (Team team : teams_) {
+			teams[num] = team;
+			num++;
+		}
+	}
+	
+	public long get_announce() {
+		return announce;
+	}
+	
+	public void set_announce(long announce_, Team team) {
+		announce = announce_;
+		announcing_team = team;
+	}
+	
+	public int[] get_result() {
+		int[] result = null; 
+		result[0] = team_one_result;
+		result[1] = team_two_result;
+		return result;
+	}
+	
+	public int get_loss_type() {
+		int[] result = this.get_result();
+		long announcing_team_id = announcing_team.get_team_id();
+		long first_team_id = teams[0].get_team_id();
+		long second_team_id = teams[0].get_team_id()
+		if (result[0] > result[1]) {
+			if (announcing_team_id == second_team_id)
+		}
+		
+		return team_one_result;	
+	}
+	
+}

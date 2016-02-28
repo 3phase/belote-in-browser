@@ -1,0 +1,11 @@
+package org.phase.game.entities;
+
+public class Game {
+
+	private long gameId;
+	
+	public Game() {
+		
+	}
+	
+}

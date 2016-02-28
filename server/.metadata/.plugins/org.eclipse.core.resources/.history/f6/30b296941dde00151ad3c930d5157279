@@ -1,0 +1,10 @@
+package org.phase.game.entities;
+
+public class Game {
+
+	private long gameId;
+	private Table table = new Table();
+	
+	
+	
+}
