@@ -9,7 +9,6 @@ public class Card {
 	public Card(long cardId, long color, long type) {
 		uniqueCardId = cardId;
 		colorId = color;
-		typeId = type;
 	}
 	
 	public long getUniqueCardId() {
@@ -21,5 +20,7 @@ public class Card {
 	public long getTypeId() {
 		return typeId;
 	}
+	
+	
 	
 }

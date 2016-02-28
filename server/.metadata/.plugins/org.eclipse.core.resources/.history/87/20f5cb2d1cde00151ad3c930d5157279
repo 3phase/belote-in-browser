@@ -1,0 +1,11 @@
+package org.phase.game.entities;
+
+public class Card {
+
+	private long uniqueCardId;
+	private long colorId;
+	private long typeId;
+	
+	
+	
+}

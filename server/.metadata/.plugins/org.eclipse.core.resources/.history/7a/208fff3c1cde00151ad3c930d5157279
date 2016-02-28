@@ -1,0 +1,30 @@
+package org.phase.game.entities;
+
+public class Card {
+
+	private long uniqueCardId;
+	private long colorId;
+	private long typeId;
+	
+	public long getUniqueCardId() {
+		return uniqueCardId;
+	}
+	public void setUniqueCardId(long uniqueCardId) {
+		this.uniqueCardId = uniqueCardId;
+	}
+	public long getColorId() {
+		return colorId;
+	}
+	public void setColorId(long colorId) {
+		this.colorId = colorId;
+	}
+	public long getTypeId() {
+		return typeId;
+	}
+	public void setTypeId(long typeId) {
+		this.typeId = typeId;
+	}
+	
+	
+	
+}

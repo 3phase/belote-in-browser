@@ -6,10 +6,8 @@ public class Card {
 	private static long colorId;
 	private static long typeId;
 	
-	public Card(long cardId, long color, long type) {
-		uniqueCardId = cardId;
-		colorId = color;
-		typeId = type;
+	public Card(long cardId, ) {
+		// TODO Auto-generated constructor stub
 	}
 	
 	public long getUniqueCardId() {
@@ -21,5 +19,7 @@ public class Card {
 	public long getTypeId() {
 		return typeId;
 	}
+	
+	
 	
 }

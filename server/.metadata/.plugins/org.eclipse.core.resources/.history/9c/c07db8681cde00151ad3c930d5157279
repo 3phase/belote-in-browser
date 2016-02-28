@@ -6,10 +6,9 @@ public class Card {
 	private static long colorId;
 	private static long typeId;
 	
-	public Card(long cardId, long color, long type) {
+	public Card(long cardId, long colorId, long typeId) {
 		uniqueCardId = cardId;
-		colorId = color;
-		typeId = type;
+		colorId = colorId;
 	}
 	
 	public long getUniqueCardId() {
@@ -21,5 +20,7 @@ public class Card {
 	public long getTypeId() {
 		return typeId;
 	}
+	
+	
 	
 }
