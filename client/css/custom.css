@@ -10,9 +10,29 @@ button:disabled {
 	background-color: #E3E3E3;
 }
 
+.announce-bar {
+	width: 800px;
+	height: 70px;
+	margin: 60px auto 0;
+	border: 1px solid;
+	border-bottom: none;
+	text-align: center;
+}
+
 .game-container {
 	width: 800px;
 	height: 800px;
-	margin: 100px auto 0;
+	margin: 0 auto;
 	border: 1px solid;
+	overflow: hidden;
 }
+
+.card-holder {
+	height: 266px;
+	text-align: center;
+}
+
+.card-holder.north { border-bottom: 1px solid; }
+.card-holder.south { border-top: 1px solid; }
+.card-holder.east { border-left: 1px solid; }
+.card-holder.west { border-right: 1px solid; }

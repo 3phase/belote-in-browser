@@ -62,10 +62,28 @@ $(document).ready(function() {
 				players[key].push(card);
 			}
 		});
-		console.log(players);
+	}
+
+	function dumpCardsOnDesk() {
+		$.each(players, function(k, v) {
+			var player = k;
+			var value = players[player];
+			$.each(value, function(key, val) {
+				var card_color = val.split(":")[0];
+				var card = val.split(":")[1];
+				// console.log(player);
+				$(".card-holder."+player).append("<button data-card-type='" + card_color +
+														+ "' data-card='" + card + "'>" +card_color + " " + card + "</button>");
+				
+			});
+		});
+		// });
+		
 	}
 
 	var game_container = $(".game-container");
+	var original_html = $(".game-container").html();
+	var announce_bar = $(".announce-bar");
 	game_container.html("<strong>Announce:</strong><br>");
 	$.each(colors, function(key, value) {
 		game_container.append("<button class='announce-color " + value + "'>" + value + "</button>");
@@ -80,9 +98,11 @@ $(document).ready(function() {
 		processAnnounce(color);
 		player_turn += 1;
 		if (player_turn > 3) {
-			game_container.html("");
-			game_container.html("<strong>Announce: </strong>" + announce);
+			game_container.html(original_html);
+			announce_bar.html("");
+			announce_bar.html("<h3>Announce: " + announce + "</h3>");
 			distributeCards(3);
+			dumpCardsOnDesk();
 		}
 	});
 
