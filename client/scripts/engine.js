@@ -42,13 +42,13 @@ $(document).ready(function() {
 
 	function remove_card_from_common_deck(color, val) {
 		cards[color] = jQuery.grep(cards[color], function(value) {
-		  return value != val;
+		 	return(value != val);
 		});
 	}
 
 	function getRandomCard() {
-		var real_colors = colors.slice(0,4);
-		var rand_color = real_colors[Math.floor(Math.random() * real_colors.length)];
+		var real_colors = null;
+		var rand_color = getRandomCardsColor();
 		var rand_color_cards = cards[rand_color];
 		var rand_card = rand_color_cards[Math.floor(Math.random() * rand_color_cards.length)];
 		remove_card_from_common_deck(rand_color, rand_card);
@@ -71,14 +71,20 @@ $(document).ready(function() {
 			$.each(value, function(key, val) {
 				var card_color = val.split(":")[0];
 				var card = val.split(":")[1];
-				// console.log(player);
 				$(".card-holder."+player).append("<button data-card-type='" + card_color +
 														+ "' data-card='" + card + "'>" +card_color + " " + card + "</button>");
 				
 			});
 		});
-		// });
-		
+	}
+
+	function getRandomCardsColor() {
+		var keys = Object.keys(cards);
+		var rand_color = null;
+		do {
+			rand_color = keys[Math.floor(Math.random() * keys.length)];
+		} while (cards[rand_color].length == 0);
+		return(rand_color);
 	}
 
 	var game_container = $(".game-container");
@@ -89,6 +95,7 @@ $(document).ready(function() {
 		game_container.append("<button class='announce-color " + value + "'>" + value + "</button>");
 	});
 	game_container.append("<button class='announce-color pass'>Pass</button>")
+	
 	distinguishCards();
 	distributeCards(5);
 
