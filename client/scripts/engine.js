@@ -93,9 +93,11 @@ $(document).ready(function() {
 	function await_card_on_desk() {
 		var expected_input = ".card-holder." + player_turns[next_turn];
 		$($(expected_input).on("click", function() {
-			alert(expected_input);
-			player_turns += 1;
-			next_turn += 1;
+			if (next_turn < 3)
+				next_turn += 1;
+			else
+				next_turn = 0;
+			await_card_on_desk();
 		}));
 	}
 
