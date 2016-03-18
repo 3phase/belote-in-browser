@@ -23,7 +23,7 @@
 	</servlet-mapping>
   
   	<listener>
-	    <listener-class>org.phase.game.rest.PublicRest</listener-class>
+	    <listener-class>org.phase.game.GameListServletContextListener</listener-class>
 	</listener>
 	
 	<welcome-file-list>
