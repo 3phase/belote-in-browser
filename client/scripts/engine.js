@@ -15,6 +15,9 @@ $(document).ready(function() {
 	var cards_trumps = ["J", "9", "A", "10", "K", "Q", "8", "7"];
 	var cards_suit = ["A", "10", "K", "Q", "J", "9", "8", "7"];
 
+	var player_turns = ["south","east", "north", "west"];
+	var next_turn = 0;
+
 	var cards = {};
 
 	function processAnnounce(color) {
@@ -87,6 +90,30 @@ $(document).ready(function() {
 		return(rand_color);
 	}
 
+	function await_card_on_desk() {
+		var expected_input = ".card-holder." + player_turns[next_turn];
+		$($(expected_input).on("click", function() {
+			if (next_turn < 3)
+				next_turn += 1;
+			else
+				next_turn = 0;
+			await_card_on_desk();
+		}));
+	}
+
+	function clean_playing_screen() {
+		announce_bar.html("");
+		announce_bar.html("<h3>Announce: " + announce + "</h3>");
+	}
+
+	function begin_game() {
+		game_container.html(original_html);
+		clean_playing_screen();
+		distributeCards(3);
+		dumpCardsOnDesk();
+		await_card_on_desk();
+	}
+
 	var game_container = $(".game-container");
 	var original_html = $(".game-container").html();
 	var announce_bar = $(".announce-bar");
@@ -105,11 +132,7 @@ $(document).ready(function() {
 		processAnnounce(color);
 		player_turn += 1;
 		if (player_turn > 3) {
-			game_container.html(original_html);
-			announce_bar.html("");
-			announce_bar.html("<h3>Announce: " + announce + "</h3>");
-			distributeCards(3);
-			dumpCardsOnDesk();
+			begin_game();
 		}
 	});
 

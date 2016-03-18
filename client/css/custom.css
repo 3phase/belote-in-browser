@@ -27,7 +27,7 @@ button:disabled {
 	overflow: hidden;
 }
 
-.card-holder {
+.card-holder, .common-card-holder {
 	height: 266px;
 	text-align: center;
 }
