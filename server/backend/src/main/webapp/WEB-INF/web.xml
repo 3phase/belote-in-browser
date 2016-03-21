@@ -8,7 +8,7 @@
         <init-param>
             <param-name>jersey.config.server.provider.packages</param-name>
 			<param-value>
-				org.phase.game
+				org.phase.game.rest
 				com.fasterxml.jackson.jaxrs.json
 			</param-value>
         </init-param>

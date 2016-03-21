@@ -1,7 +1,7 @@
 package org.phase.game.rest;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
+import javax.inject.Inject;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -14,19 +14,13 @@ import org.phase.game.entities.Team;
 @Path("/task")
 public class PublicRest {
 	
-//	private final Room room;
-	
 	public PublicRest() {
-		// TODO Auto-generated constructor stub
-		System.out.println("HAHAHAH");
+		System.out.println("Public Rest was initialized");
 	}
-	
-//	public PublicRest(Room room_) {
-//		this.room = room_;
-//	}
 	
 	@PUT
 	@Produces({MediaType.APPLICATION_JSON})
+	@Consumes({MediaType.APPLICATION_JSON})
 	public Room createNewRoom(Room room, Player player) throws Exception {
 		Team team = new Team();
 		team.new_player(player);
@@ -34,17 +28,8 @@ public class PublicRest {
 		return room;
 	}
 	
-	@GET
-	@Path("/{haha}")
-	public void testPrint() {
-		System.out.println("Test success");
-	}
 	
-	@POST
-//	@Consumes({MediaType.APPLICATION_JSON})
-//	@Produces({MediaType.APPLICATION_JSON})
-	public void addPlayerToTeam(Player player) {
-		
-	}
+	// TODO: addPlayerToTeam
+	// TODO: createNewRoom	
 	
 }

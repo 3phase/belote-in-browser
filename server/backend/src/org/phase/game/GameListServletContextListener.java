@@ -7,13 +7,13 @@ import com.google.inject.servlet.ServletModule;
 
 import org.phase.game.gamecontext.GameServices;
 
-public class GameListServletContextListener extends GuiceServletContextListener{
+public class GameListServletContextListener extends GuiceServletContextListener {
 	
 	public static Injector injector;
 
 	@Override
 	protected Injector getInjector() {
-		System.out.println("haha");
+		
 		if (injector == null) {
 			injector = Guice.createInjector(new ServletModule() {
 				@Override

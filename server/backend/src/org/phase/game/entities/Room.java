@@ -26,6 +26,19 @@ public class Room {
 		}
 	}
 	
+	public void addPlayer(Player player) {
+		for (Team team : teams) {
+			if (team.if_ready() != 1) {
+				try {
+					team.new_player(player);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
 	public void start_game() throws Exception {
 		if (teams.size() == 2 && status == 0) {
 			status = 1;
