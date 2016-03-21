@@ -13,6 +13,7 @@ public class GameListServletContextListener extends GuiceServletContextListener{
 
 	@Override
 	protected Injector getInjector() {
+		System.out.println("haha");
 		if (injector == null) {
 			injector = Guice.createInjector(new ServletModule() {
 				@Override
