@@ -15,7 +15,7 @@ public class GameListServletContextListener extends GuiceServletContextListener 
 			injector = Guice.createInjector(new ServletModule() {
 				@Override
 				protected void configureServlets() {
-					bind(GameServices.class);
+					bind(BeloteInBrowser.class);
 				}
 			});
 		}

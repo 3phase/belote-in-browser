@@ -3,6 +3,8 @@ package org.phase.game.rest;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.PUT;
@@ -12,15 +14,25 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import org.phase.game.entities.Card;
+import org.phase.game.gamecontext.BeloteInBrowser;
 
 @Path("/play")
+@Singleton
 public class PublicRest {
+	
+	private final BeloteInBrowser game;
+	
+	@Inject
+	public PublicRest(BeloteInBrowser game_) {
+		System.out.println("HAHAHAH");
+		this.game = game_;
+	}
 	
 	@PUT
 	@Path("/room/create")
 	@Consumes({MediaType.APPLICATION_JSON})
 	public void createRoom() {
-		
+		this.game.createNewRoom();
 	}
 	
 	@PUT

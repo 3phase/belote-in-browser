@@ -10,6 +10,11 @@ public class Room {
 	private List<Team> teams = new ArrayList<Team>();
 	private Game game;
 	
+	public Room(long room_id) {
+		this.roomId = room_id;
+		System.out.println("ROOM ID IS " + this.roomId);
+	}
+	
 	public void add_team(Team team) throws Exception {
 		if (teams.size() < 2) {
 			teams.add(team);

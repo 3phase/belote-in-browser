@@ -9,19 +9,14 @@ import org.phase.game.entities.Player;
 import org.phase.game.entities.Room;
 
 @Singleton
-public class GameServices {
+public class BeloteInBrowser {
 	
-	private ArrayList<Room> rooms = new ArrayList<Room>();
+	public ArrayList<Room> rooms = new ArrayList<Room>();
 
-	@Inject
-	public GameServices() {
-		// TODO Auto-generated constructor stub
-	}
-	
 	public Room createNewRoom() {
-		Room room = new Room();
+		Room room = new Room(rooms.size());
 		rooms.add(room);
-		return room;
+		return(room);
 	}
 	
 	public void addPlayerToRoom(Room room, Player player) throws Exception {

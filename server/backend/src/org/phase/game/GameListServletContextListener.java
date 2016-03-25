@@ -5,7 +5,7 @@ import com.google.inject.Injector;
 import com.google.inject.servlet.GuiceServletContextListener;
 import com.google.inject.servlet.ServletModule;
 
-import org.phase.game.gamecontext.GameServices;
+import org.phase.game.gamecontext.BeloteInBrowser;
 
 public class GameListServletContextListener extends GuiceServletContextListener {
 	
@@ -18,7 +18,7 @@ public class GameListServletContextListener extends GuiceServletContextListener 
 			injector = Guice.createInjector(new ServletModule() {
 				@Override
 				protected void configureServlets() {
-					bind(GameServices.class);
+					bind(BeloteInBrowser.class);
 				}
 			});
 		}
