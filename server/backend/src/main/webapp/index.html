@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Belote in browser</title>
+<script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
+</head>
+<body>
+ To play belote in your browser follow <a href="http://j.mp/belot4encencencencence">this link</a> <br>
+ or paste that <input type="text" class="url" value="http://j.mp/belot4encencencencence" disabled> <input type="submit" class="copyToClipboard" value="Copy to clipboard"> to your browser.
+ <script type="text/javascript">
+ 	$("document").ready(function() {
+ 		"use strict";
+ 		
+ 		$(".copyToClipboard").on("click", function() {
+ 			var target = $(".url");
+ 			target.focus();
+ 		    target[0].setSelectionRange(0, target.attr("value").length);
+ 			var clipboard = document.execCommand("copy");
+ 		});
+ 	});
+ </script>
+</body>
+</html>
