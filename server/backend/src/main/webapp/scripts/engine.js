@@ -34,7 +34,7 @@ $(document).ready(function() {
 	}
 
 	function check_if_combination_avilable(player_key) {
-		// Send request to server to check player cards
+		// TODO: Send request to server to check player cards
 	}
 
 	function distinguishCards() {
@@ -81,7 +81,7 @@ $(document).ready(function() {
 			$.each(value, function(key, val) {
 				var card_color = val.split(":")[0];
 				var card = val.split(":")[1];
-				$(".card-holder."+player).append("<button data-card-type='" + card_color +
+				$(".card-holder#"+player).append("<button data-card-type='" + card_color +
 														+ "' data-card='" + card + "'>" +card_color + " " + card + "</button>");
 				
 			});
@@ -98,8 +98,10 @@ $(document).ready(function() {
 	}
 
 	function await_card_on_desk() {
-		var expected_input = ".card-holder." + player_turns[next_turn];
+		var expected_input = "#" + player_turns[next_turn] + ".card-holder";
+		console.log("NUR HIER " + next_turn + "; " + expected_input);
 		$($(expected_input).on("click", function() {
+			alert(expected_input);
 			if (next_turn < 3)
 				next_turn += 1;
 			else
