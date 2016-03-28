@@ -98,14 +98,16 @@ $(document).ready(function() {
 	}
 
 	function await_card_on_desk() {
-		var expected_input = "#" + player_turns[next_turn] + ".card-holder";
-		console.log("NUR HIER " + next_turn + "; " + expected_input);
-		$($(expected_input).on("click", function() {
-			alert(expected_input);
+		$(".card-holder button").prop("disabled", true);
+		var expected_input = ".card-holder#" + player_turns[next_turn];
+		$(expected_input+" button").prop("disabled", false);
+		$($(".card-holder").on("click", function() {
 			if (next_turn < 3)
 				next_turn += 1;
 			else
 				next_turn = 0;
+			
+			// Problem here			
 			await_card_on_desk();
 		}));
 	}
