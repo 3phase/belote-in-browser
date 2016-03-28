@@ -33,6 +33,10 @@ $(document).ready(function() {
 
 	}
 
+	function check_if_combination_avilable(player_key) {
+		// Send request to server to check player cards
+	}
+
 	function distinguishCards() {
 		var real_colors = colors.slice(0,4);
 		$.each(real_colors, function(key, value) {
@@ -63,6 +67,9 @@ $(document).ready(function() {
 			for (var i=0; i < count; i++) {
 				var card = getRandomCard();
 				players[key].push(card);
+			}
+			if (count == 3) {
+				check_if_combination_avilable(key);
 			}
 		});
 	}

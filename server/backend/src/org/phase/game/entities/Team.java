@@ -36,4 +36,8 @@ public class Team {
 		won_cards.addLast(card);
 	}
 	
+	public Player get_player(Integer player_id) {
+		return players.get(player_id);
+	}
+	
 }

@@ -67,6 +67,15 @@ public class PublicRest {
 		return(listOfCards);
 	}
 	
+	@PUT
+	@Path("/room/{room_id}/t/{team_id}/player/{player_id}/add_cards")
+	@Consumes({MediaType.APPLICATION_JSON})
+	public void addCardsToPlayer(@PathParam("room_id") Integer room_id,
+			@PathParam("team_id") Integer team_id,
+			@PathParam("player_id") Integer player_id, List<Card> cards) {
+		game.getRoomGame(room_id).getPlayerById(team_id, player_id);
+	}
+	
 	// TODO: addPlayerToTeam
 	// TODO: createNewRoom	
 	

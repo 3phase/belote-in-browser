@@ -65,4 +65,9 @@ public class Game {
 		return team_one_result;	
 	}
 	
+	public Player getPlayerById(Integer team_id, Integer player_id) {
+		Team wanted_team = teams[team_id];
+		return wanted_team.get_player(player_id);
+	}
+	
 }

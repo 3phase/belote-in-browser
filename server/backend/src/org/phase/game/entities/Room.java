@@ -64,4 +64,8 @@ public class Room {
 		return status;
 	}
 	
+	public Game get_game() {
+		return this.game;
+	}
+	
 }
