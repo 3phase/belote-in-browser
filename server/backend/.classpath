@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="var" path="M2_REPO/javax/ws/rs/javax.ws.rs-api/2.0/javax.ws.rs-api-2.0.jar" sourcepath="M2_REPO/javax/ws/rs/javax.ws.rs-api/2.0/javax.ws.rs-api-2.0-sources.jar">
+	<classpathentry kind="var" path="M2_REPO/javax/ws/rs/javax.ws.rs-api/2.0.1/javax.ws.rs-api-2.0.1.jar" sourcepath="M2_REPO/javax/ws/rs/javax.ws.rs-api/2.0.1/javax.ws.rs-api-2.0.1-sources.jar">
 		<attributes>
-			<attribute name="javadoc_location" value="jar:file:/C:/Users/lcadPC/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.0/javax.ws.rs-api-2.0-javadoc.jar!/"/>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/lcadPC/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.0.1/javax.ws.rs-api-2.0.1-javadoc.jar!/"/>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
@@ -36,69 +36,62 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
-	<classpathentry kind="var" path="M2_REPO/org/glassfish/jersey/containers/jersey-container-servlet/2.4.1/jersey-container-servlet-2.4.1.jar" sourcepath="M2_REPO/org/glassfish/jersey/containers/jersey-container-servlet/2.4.1/jersey-container-servlet-2.4.1-sources.jar">
+	<classpathentry kind="var" path="M2_REPO/org/glassfish/jersey/containers/jersey-container-servlet/2.21/jersey-container-servlet-2.21.jar" sourcepath="M2_REPO/org/glassfish/jersey/containers/jersey-container-servlet/2.21/jersey-container-servlet-2.21-sources.jar">
 		<attributes>
-			<attribute name="javadoc_location" value="jar:file:/C:/Users/lcadPC/.m2/repository/org/glassfish/jersey/containers/jersey-container-servlet/2.4.1/jersey-container-servlet-2.4.1-javadoc.jar!/"/>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/lcadPC/.m2/repository/org/glassfish/jersey/containers/jersey-container-servlet/2.21/jersey-container-servlet-2.21-javadoc.jar!/"/>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="var" path="M2_REPO/org/glassfish/jersey/containers/jersey-container-servlet-core/2.4.1/jersey-container-servlet-core-2.4.1.jar" sourcepath="M2_REPO/org/glassfish/jersey/containers/jersey-container-servlet-core/2.4.1/jersey-container-servlet-core-2.4.1-sources.jar">
+	<classpathentry kind="var" path="M2_REPO/org/glassfish/jersey/containers/jersey-container-servlet-core/2.21/jersey-container-servlet-core-2.21.jar" sourcepath="M2_REPO/org/glassfish/jersey/containers/jersey-container-servlet-core/2.21/jersey-container-servlet-core-2.21-sources.jar">
 		<attributes>
-			<attribute name="javadoc_location" value="jar:file:/C:/Users/lcadPC/.m2/repository/org/glassfish/jersey/containers/jersey-container-servlet-core/2.4.1/jersey-container-servlet-core-2.4.1-javadoc.jar!/"/>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/lcadPC/.m2/repository/org/glassfish/jersey/containers/jersey-container-servlet-core/2.21/jersey-container-servlet-core-2.21-javadoc.jar!/"/>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="var" path="M2_REPO/org/glassfish/hk2/external/javax.inject/2.2.0-b21/javax.inject-2.2.0-b21.jar" sourcepath="M2_REPO/org/glassfish/hk2/external/javax.inject/2.2.0-b21/javax.inject-2.2.0-b21-sources.jar">
+	<classpathentry kind="var" path="M2_REPO/org/glassfish/hk2/external/javax.inject/2.4.0-b31/javax.inject-2.4.0-b31.jar" sourcepath="M2_REPO/org/glassfish/hk2/external/javax.inject/2.4.0-b31/javax.inject-2.4.0-b31-sources.jar">
 		<attributes>
-			<attribute name="javadoc_location" value="jar:file:/C:/Users/lcadPC/.m2/repository/org/glassfish/hk2/external/javax.inject/2.2.0-b21/javax.inject-2.2.0-b21-javadoc.jar!/"/>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/lcadPC/.m2/repository/org/glassfish/hk2/external/javax.inject/2.4.0-b31/javax.inject-2.4.0-b31-javadoc.jar!/"/>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="var" path="M2_REPO/org/glassfish/jersey/core/jersey-server/2.4.1/jersey-server-2.4.1.jar" sourcepath="M2_REPO/org/glassfish/jersey/core/jersey-server/2.4.1/jersey-server-2.4.1-sources.jar">
+	<classpathentry kind="var" path="M2_REPO/org/glassfish/jersey/core/jersey-common/2.21/jersey-common-2.21.jar" sourcepath="M2_REPO/org/glassfish/jersey/core/jersey-common/2.21/jersey-common-2.21-sources.jar">
 		<attributes>
-			<attribute name="javadoc_location" value="jar:file:/C:/Users/lcadPC/.m2/repository/org/glassfish/jersey/core/jersey-server/2.4.1/jersey-server-2.4.1-javadoc.jar!/"/>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/lcadPC/.m2/repository/org/glassfish/jersey/core/jersey-common/2.21/jersey-common-2.21-javadoc.jar!/"/>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="var" path="M2_REPO/org/glassfish/jersey/core/jersey-common/2.4.1/jersey-common-2.4.1.jar" sourcepath="M2_REPO/org/glassfish/jersey/core/jersey-common/2.4.1/jersey-common-2.4.1-sources.jar">
+	<classpathentry kind="var" path="M2_REPO/org/glassfish/jersey/bundles/repackaged/jersey-guava/2.21/jersey-guava-2.21.jar" sourcepath="M2_REPO/org/glassfish/jersey/bundles/repackaged/jersey-guava/2.21/jersey-guava-2.21-sources.jar">
 		<attributes>
-			<attribute name="javadoc_location" value="jar:file:/C:/Users/lcadPC/.m2/repository/org/glassfish/jersey/core/jersey-common/2.4.1/jersey-common-2.4.1-javadoc.jar!/"/>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="var" path="M2_REPO/com/google/guava/guava/14.0.1/guava-14.0.1.jar" sourcepath="M2_REPO/com/google/guava/guava/14.0.1/guava-14.0.1-sources.jar">
+	<classpathentry kind="var" path="M2_REPO/org/glassfish/hk2/hk2-api/2.4.0-b31/hk2-api-2.4.0-b31.jar" sourcepath="M2_REPO/org/glassfish/hk2/hk2-api/2.4.0-b31/hk2-api-2.4.0-b31-sources.jar">
 		<attributes>
-			<attribute name="javadoc_location" value="jar:file:/C:/Users/lcadPC/.m2/repository/com/google/guava/guava/14.0.1/guava-14.0.1-javadoc.jar!/"/>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/lcadPC/.m2/repository/org/glassfish/hk2/hk2-api/2.4.0-b31/hk2-api-2.4.0-b31-javadoc.jar!/"/>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="var" path="M2_REPO/org/glassfish/hk2/hk2-api/2.2.0-b21/hk2-api-2.2.0-b21.jar" sourcepath="M2_REPO/org/glassfish/hk2/hk2-api/2.2.0-b21/hk2-api-2.2.0-b21-sources.jar">
+	<classpathentry kind="var" path="M2_REPO/org/glassfish/hk2/hk2-utils/2.4.0-b31/hk2-utils-2.4.0-b31.jar" sourcepath="M2_REPO/org/glassfish/hk2/hk2-utils/2.4.0-b31/hk2-utils-2.4.0-b31-sources.jar">
 		<attributes>
-			<attribute name="javadoc_location" value="jar:file:/C:/Users/lcadPC/.m2/repository/org/glassfish/hk2/hk2-api/2.2.0-b21/hk2-api-2.2.0-b21-javadoc.jar!/"/>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/lcadPC/.m2/repository/org/glassfish/hk2/hk2-utils/2.4.0-b31/hk2-utils-2.4.0-b31-javadoc.jar!/"/>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="var" path="M2_REPO/org/glassfish/hk2/hk2-utils/2.2.0-b21/hk2-utils-2.2.0-b21.jar" sourcepath="M2_REPO/org/glassfish/hk2/hk2-utils/2.2.0-b21/hk2-utils-2.2.0-b21-sources.jar">
+	<classpathentry kind="var" path="M2_REPO/org/glassfish/hk2/external/aopalliance-repackaged/2.4.0-b31/aopalliance-repackaged-2.4.0-b31.jar" sourcepath="M2_REPO/org/glassfish/hk2/external/aopalliance-repackaged/2.4.0-b31/aopalliance-repackaged-2.4.0-b31-sources.jar">
 		<attributes>
-			<attribute name="javadoc_location" value="jar:file:/C:/Users/lcadPC/.m2/repository/org/glassfish/hk2/hk2-utils/2.2.0-b21/hk2-utils-2.2.0-b21-javadoc.jar!/"/>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/lcadPC/.m2/repository/org/glassfish/hk2/external/aopalliance-repackaged/2.4.0-b31/aopalliance-repackaged-2.4.0-b31-javadoc.jar!/"/>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="var" path="M2_REPO/org/glassfish/hk2/hk2-locator/2.2.0-b21/hk2-locator-2.2.0-b21.jar" sourcepath="M2_REPO/org/glassfish/hk2/hk2-locator/2.2.0-b21/hk2-locator-2.2.0-b21-sources.jar">
+	<classpathentry kind="var" path="M2_REPO/org/glassfish/hk2/hk2-locator/2.4.0-b31/hk2-locator-2.4.0-b31.jar" sourcepath="M2_REPO/org/glassfish/hk2/hk2-locator/2.4.0-b31/hk2-locator-2.4.0-b31-sources.jar">
 		<attributes>
-			<attribute name="javadoc_location" value="jar:file:/C:/Users/lcadPC/.m2/repository/org/glassfish/hk2/hk2-locator/2.2.0-b21/hk2-locator-2.2.0-b21-javadoc.jar!/"/>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/lcadPC/.m2/repository/org/glassfish/hk2/hk2-locator/2.4.0-b31/hk2-locator-2.4.0-b31-javadoc.jar!/"/>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="var" path="M2_REPO/org/glassfish/hk2/external/asm-all-repackaged/2.2.0-b21/asm-all-repackaged-2.2.0-b21.jar" sourcepath="M2_REPO/org/glassfish/hk2/external/asm-all-repackaged/2.2.0-b21/asm-all-repackaged-2.2.0-b21-sources.jar">
+	<classpathentry kind="var" path="M2_REPO/org/javassist/javassist/3.18.1-GA/javassist-3.18.1-GA.jar" sourcepath="M2_REPO/org/javassist/javassist/3.18.1-GA/javassist-3.18.1-GA-sources.jar">
 		<attributes>
-			<attribute name="javadoc_location" value="jar:file:/C:/Users/lcadPC/.m2/repository/org/glassfish/hk2/external/asm-all-repackaged/2.2.0-b21/asm-all-repackaged-2.2.0-b21-javadoc.jar!/"/>
-			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="var" path="M2_REPO/org/glassfish/hk2/external/cglib/2.2.0-b21/cglib-2.2.0-b21.jar" sourcepath="M2_REPO/org/glassfish/hk2/external/cglib/2.2.0-b21/cglib-2.2.0-b21-sources.jar">
-		<attributes>
-			<attribute name="javadoc_location" value="jar:file:/C:/Users/lcadPC/.m2/repository/org/glassfish/hk2/external/cglib/2.2.0-b21/cglib-2.2.0-b21-javadoc.jar!/"/>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/lcadPC/.m2/repository/org/javassist/javassist/3.18.1-GA/javassist-3.18.1-GA-javadoc.jar!/"/>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
@@ -108,21 +101,33 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="var" path="M2_REPO/org/glassfish/jersey/core/jersey-client/2.4.1/jersey-client-2.4.1.jar" sourcepath="M2_REPO/org/glassfish/jersey/core/jersey-client/2.4.1/jersey-client-2.4.1-sources.jar">
+	<classpathentry kind="var" path="M2_REPO/org/glassfish/jersey/core/jersey-server/2.21/jersey-server-2.21.jar" sourcepath="M2_REPO/org/glassfish/jersey/core/jersey-server/2.21/jersey-server-2.21-sources.jar">
 		<attributes>
-			<attribute name="javadoc_location" value="jar:file:/C:/Users/lcadPC/.m2/repository/org/glassfish/jersey/core/jersey-client/2.4.1/jersey-client-2.4.1-javadoc.jar!/"/>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/lcadPC/.m2/repository/org/glassfish/jersey/core/jersey-server/2.21/jersey-server-2.21-javadoc.jar!/"/>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="var" path="M2_REPO/org/glassfish/jersey/media/jersey-media-multipart/2.4.1/jersey-media-multipart-2.4.1.jar" sourcepath="M2_REPO/org/glassfish/jersey/media/jersey-media-multipart/2.4.1/jersey-media-multipart-2.4.1-sources.jar">
+	<classpathentry kind="var" path="M2_REPO/org/glassfish/jersey/core/jersey-client/2.21/jersey-client-2.21.jar" sourcepath="M2_REPO/org/glassfish/jersey/core/jersey-client/2.21/jersey-client-2.21-sources.jar">
 		<attributes>
-			<attribute name="javadoc_location" value="jar:file:/C:/Users/lcadPC/.m2/repository/org/glassfish/jersey/media/jersey-media-multipart/2.4.1/jersey-media-multipart-2.4.1-javadoc.jar!/"/>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/lcadPC/.m2/repository/org/glassfish/jersey/core/jersey-client/2.21/jersey-client-2.21-javadoc.jar!/"/>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="var" path="M2_REPO/org/jvnet/mimepull/mimepull/1.9.3/mimepull-1.9.3.jar" sourcepath="M2_REPO/org/jvnet/mimepull/mimepull/1.9.3/mimepull-1.9.3-sources.jar">
+	<classpathentry kind="var" path="M2_REPO/org/glassfish/jersey/media/jersey-media-jaxb/2.21/jersey-media-jaxb-2.21.jar" sourcepath="M2_REPO/org/glassfish/jersey/media/jersey-media-jaxb/2.21/jersey-media-jaxb-2.21-sources.jar">
 		<attributes>
-			<attribute name="javadoc_location" value="jar:file:/C:/Users/lcadPC/.m2/repository/org/jvnet/mimepull/mimepull/1.9.3/mimepull-1.9.3-javadoc.jar!/"/>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/lcadPC/.m2/repository/org/glassfish/jersey/media/jersey-media-jaxb/2.21/jersey-media-jaxb-2.21-javadoc.jar!/"/>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="var" path="M2_REPO/org/glassfish/jersey/media/jersey-media-multipart/2.21/jersey-media-multipart-2.21.jar" sourcepath="M2_REPO/org/glassfish/jersey/media/jersey-media-multipart/2.21/jersey-media-multipart-2.21-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/lcadPC/.m2/repository/org/glassfish/jersey/media/jersey-media-multipart/2.21/jersey-media-multipart-2.21-javadoc.jar!/"/>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="var" path="M2_REPO/org/jvnet/mimepull/mimepull/1.9.6/mimepull-1.9.6.jar" sourcepath="M2_REPO/org/jvnet/mimepull/mimepull/1.9.6/mimepull-1.9.6-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/lcadPC/.m2/repository/org/jvnet/mimepull/mimepull/1.9.6/mimepull-1.9.6-javadoc.jar!/"/>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
@@ -176,6 +181,12 @@
 	</classpathentry>
 	<classpathentry kind="var" path="M2_REPO/aopalliance/aopalliance/1.0/aopalliance-1.0.jar" sourcepath="M2_REPO/aopalliance/aopalliance/1.0/aopalliance-1.0-sources.jar">
 		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="var" path="M2_REPO/com/google/guava/guava/16.0.1/guava-16.0.1.jar" sourcepath="M2_REPO/com/google/guava/guava/16.0.1/guava-16.0.1-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/lcadPC/.m2/repository/com/google/guava/guava/16.0.1/guava-16.0.1-javadoc.jar!/"/>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
