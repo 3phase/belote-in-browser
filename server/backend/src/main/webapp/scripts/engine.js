@@ -97,24 +97,6 @@ $(document).ready(function() {
 		return(rand_color);
 	}
 
-	function await_card_on_desk() {
-		$(".card-holder button").prop("disabled", true);
-		var expected_input = ".card-holder." + player_turns[next_turn];
-		$(expected_input+" button").prop("disabled", false);
-		$(".card-holder." + player_turns[next_turn] + " button").on("click", function() {
-			$.holdReady(false);
-			console.log(next_turn);
-			if (next_turn < 3) {
-				next_turn += 1;
-			} else {
-				next_turn = 0;
-			}
-			$.holdReady(true);
-			// Problem here
-			
-		});
-	}
-
 	function clean_playing_screen() {
 		announce_bar.html("");
 		announce_bar.html("<h3>Announce: " + announce + "</h3>");
@@ -135,7 +117,6 @@ $(document).ready(function() {
 	}
 	
 	function handleCardChoice() {
-		console.log("Handling card choice");
 		if (next_turn < 3) {
 			next_turn += 1;
 		} else {
