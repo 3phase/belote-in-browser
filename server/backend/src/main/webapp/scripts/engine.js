@@ -119,12 +119,29 @@ $(document).ready(function() {
 		announce_bar.html("");
 		announce_bar.html("<h3>Announce: " + announce + "</h3>");
 	}
+	
+	function blockOthersAndReleaseCurrentsCards() {
+		$(".card-holder button").prop("disabled", true);
+		var expected_input = ".card-holder#" + player_turns[next_turn];
+		$(".card-holder#" + player_turns[next_turn] + " button").prop("disabled", false);
+	}
 
 	function begin_game() {
 		game_container.html(original_html);
 		clean_playing_screen();
 		distributeCards(3);
 		dumpCardsOnDesk();
+		blockOthersAndReleaseCurrentsCards();
+	}
+	
+	function handleCardChoice() {
+		alert("Handling card choice");
+		if (next_turn < 3) {
+			next_turn += 1;
+		} else {
+			next_turn = 0;
+		}
+		blockOthersAndReleaseCurrentsCards();
 	}
 	
 	function handleAnnounce() {
@@ -151,6 +168,7 @@ $(document).ready(function() {
 	distributeCards(5);
 	
 	$(".announce-color").on("click", handleAnnounce);
+	$(".card-holder button").on("click", handleCardChoice);
 	
 
 
