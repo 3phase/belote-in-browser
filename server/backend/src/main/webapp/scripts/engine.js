@@ -101,15 +101,18 @@ $(document).ready(function() {
 		$(".card-holder button").prop("disabled", true);
 		var expected_input = ".card-holder#" + player_turns[next_turn];
 		$(expected_input+" button").prop("disabled", false);
-		$($(".card-holder").on("click", function() {
-			if (next_turn < 3)
+		$(".card-holder#" + player_turns[next_turn] + " button").on("click", function() {
+			$.holdReady(false);
+			console.log(next_turn);
+			if (next_turn < 3) {
 				next_turn += 1;
-			else
+			} else {
 				next_turn = 0;
+			}
+			$.holdReady(true);
+			// Problem here
 			
-			// Problem here			
-			await_card_on_desk();
-		}));
+		});
 	}
 
 	function clean_playing_screen() {
@@ -122,7 +125,17 @@ $(document).ready(function() {
 		clean_playing_screen();
 		distributeCards(3);
 		dumpCardsOnDesk();
-		await_card_on_desk();
+	}
+	
+	function handleAnnounce() {
+		var attr = $(this).attr("class");
+		var color = attr.split(" ")[1];
+		processAnnounce(color);
+		player_turn += 1;
+		if (player_turn > 3) {
+			game_container.html(original_html);
+			begin_game();
+		}
 	}
 
 	var game_container = $(".game-container");
@@ -136,16 +149,9 @@ $(document).ready(function() {
 	
 	distinguishCards();
 	distributeCards(5);
-
-	$(".announce-color").on("click", function() {
-		var attr = $(this).attr("class");
-		var color = attr.split(" ")[1];
-		processAnnounce(color);
-		player_turn += 1;
-		if (player_turn > 3) {
-			begin_game();
-		}
-	});
+	
+	$(".announce-color").on("click", handleAnnounce);
+	
 
 
 });
