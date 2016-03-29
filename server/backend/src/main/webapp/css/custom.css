@@ -32,7 +32,7 @@ button:disabled {
 	text-align: center;
 }
 
-.card-holder#north { border-bottom: 1px solid; }
-.card-holder#south { border-top: 1px solid; }
-.card-holder#east { border-left: 1px solid; }
-.card-holder#west { border-right: 1px solid; }
+.card-holder.north { border-bottom: 1px solid; }
+.card-holder.south { border-top: 1px solid; }
+.card-holder.east { border-left: 1px solid; }
+.card-holder.west { border-right: 1px solid; }

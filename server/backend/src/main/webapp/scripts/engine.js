@@ -81,7 +81,7 @@ $(document).ready(function() {
 			$.each(value, function(key, val) {
 				var card_color = val.split(":")[0];
 				var card = val.split(":")[1];
-				$(".card-holder#"+player).append("<button data-card-type='" + card_color +
+				$(".card-holder."+player).append("<button data-card-type='" + card_color +
 														+ "' data-card='" + card + "'>" +card_color + " " + card + "</button>");
 				
 			});
@@ -99,9 +99,9 @@ $(document).ready(function() {
 
 	function await_card_on_desk() {
 		$(".card-holder button").prop("disabled", true);
-		var expected_input = ".card-holder#" + player_turns[next_turn];
+		var expected_input = ".card-holder." + player_turns[next_turn];
 		$(expected_input+" button").prop("disabled", false);
-		$(".card-holder#" + player_turns[next_turn] + " button").on("click", function() {
+		$(".card-holder." + player_turns[next_turn] + " button").on("click", function() {
 			$.holdReady(false);
 			console.log(next_turn);
 			if (next_turn < 3) {
@@ -122,8 +122,8 @@ $(document).ready(function() {
 	
 	function blockOthersAndReleaseCurrentsCards() {
 		$(".card-holder button").prop("disabled", true);
-		var expected_input = ".card-holder#" + player_turns[next_turn];
-		$(".card-holder#" + player_turns[next_turn] + " button").prop("disabled", false);
+		var expected_input = ".card-holder." + player_turns[next_turn];
+		$(".card-holder." + player_turns[next_turn] + " button").prop("disabled", false);
 	}
 
 	function begin_game() {
@@ -135,7 +135,7 @@ $(document).ready(function() {
 	}
 	
 	function handleCardChoice() {
-		alert("Handling card choice");
+		console.log("Handling card choice");
 		if (next_turn < 3) {
 			next_turn += 1;
 		} else {
@@ -168,8 +168,7 @@ $(document).ready(function() {
 	distributeCards(5);
 	
 	$(".announce-color").on("click", handleAnnounce);
-	$(".card-holder button").on("click", handleCardChoice);
-	
+	$("body").on("click", ".card-holder button", handleCardChoice);
 
 
 });
