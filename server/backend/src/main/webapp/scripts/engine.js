@@ -118,17 +118,19 @@ $(document).ready(function() {
 	function handleCardChoice() {
 		var cardType = $(this).attr("data-card-type");
 		var card = $(this).attr("data-card");
+		var originatingPlayer = $(this).parent().attr("class");
+		originatingPlayer = originatingPlayer.split(" ")[1];
 		if (next_turn < 3) {
 			next_turn += 1;
 		} else {
 			next_turn = 0;
 		}
-		placeCardOnCommonTable(cardType, card);
+		placeCardOnCommonTable(cardType, card, originatingPlayer);
 		blockOthersAndReleaseCurrentsCards();
 	}
 	
-	function placeCardOnCommonTable(cardType, card) {
-		// Remove card from players' desk and place it on table
+	function placeCardOnCommonTable(cardType, card, originatingPlayer) {
+		
 	}
 	
 	function handleAnnounce() {
