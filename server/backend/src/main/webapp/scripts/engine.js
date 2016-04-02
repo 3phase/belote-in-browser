@@ -117,12 +117,19 @@ $(document).ready(function() {
 	}
 	
 	function handleCardChoice() {
+		var cardType = $(this).attr("data-card-type");
+		console.log("Type " + cardType);
 		if (next_turn < 3) {
 			next_turn += 1;
 		} else {
 			next_turn = 0;
 		}
+		placeCardOnCommonTable(cardType);
 		blockOthersAndReleaseCurrentsCards();
+	}
+	
+	function placeCardOnCommonTable(cardType) {
+		// Remove card from players' desk and place it on table		
 	}
 	
 	function handleAnnounce() {
