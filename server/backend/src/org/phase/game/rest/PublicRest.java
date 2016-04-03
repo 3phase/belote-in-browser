@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -42,12 +43,14 @@ public class PublicRest {
 		
 	}
 	
-	@PUT
+	@POST
 	@Path("/room/{room_id}/evaluate_cards")
 	@Consumes({MediaType.APPLICATION_JSON})
-	public void addCardToCommonDesk(@PathParam("room_id") Integer room_id, 
+	@Produces("text/plain")
+	public String addCardToCommonDesk(@PathParam("room_id") Integer room_id, 
 			Integer player_id) {
 		// Evaluate cards that are on the common table
+		return "HAHA";
 		
 	}
 	

@@ -123,6 +123,8 @@ $(document).ready(function() {
 		if (next_turn < 3) {
 			next_turn += 1;
 		} else {
+			var commonDesk = $(".common-card-holder button");
+			sendCommonTableCards(commonDesk);
 			next_turn = 0;
 		}
 		placeCardOnCommonTable(cardType, card, originatingPlayer);
@@ -131,8 +133,28 @@ $(document).ready(function() {
 	
 	function placeCardOnCommonTable(cardType, card, originatingPlayer) {
 		var cardToRemove = $("[data-card-type=" + cardType + "][data-card=" + card + "]");
+		cardToRemove.attr("data-card-owner", originatingPlayer);
 		$(".common-card-holder").append(cardToRemove);
 		$(".card-holder button[data-card-type=" + cardType + "][data-card=" + card + "]").remove();
+	}
+	
+	function sendCommonTableCards(cards) {
+		var cardsOnTable = []
+		var ENDPOINT = "http://77.70.100.163:8080/05_SampleBackend/rest/play/room/1/evaluate_cards"
+		$.each(cards, function(key, val) {
+			cardsOnTable[$(val).attr("data-card-owner")] = []
+			cardsOnTable[$(val).attr("data-card-owner")][0] = $(val).attr("data-card-type");
+			cardsOnTable[$(val).attr("data-card-owner")][1] = $(val).attr("data-card"); 
+		});
+		
+		$.ajax(ENDPOINT, {
+			method: "POST",
+			dataType: "json",
+			data: JSON.stringify(cardsOnTable),
+			contentType: "application/json; charset=utf-8"
+		}).then(function(result) {
+			console.log($(result));
+		});
 	}
 	
 	function handleAnnounce() {
