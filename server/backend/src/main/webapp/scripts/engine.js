@@ -131,7 +131,8 @@ $(document).ready(function() {
 	
 	function placeCardOnCommonTable(cardType, card, originatingPlayer) {
 		var cardToRemove = $("[data-card-type=" + cardType + "][data-card=" + card + "]");
-		cardToRemove
+		$(".common-card-holder").append(cardToRemove);
+		$(".card-holder button[data-card-type=" + cardType + "][data-card=" + card + "]").remove();
 	}
 	
 	function handleAnnounce() {
