@@ -142,19 +142,25 @@ $(document).ready(function() {
 		var cardsOnTable = []
 		var ENDPOINT = "http://77.70.100.163:8080/05_SampleBackend/rest/play/room/1/evaluate_cards"
 		$.each(cards, function(key, val) {
-			cardsOnTable[$(val).attr("data-card-owner")] = []
-			cardsOnTable[$(val).attr("data-card-owner")][0] = $(val).attr("data-card-type");
-			cardsOnTable[$(val).attr("data-card-owner")][1] = $(val).attr("data-card"); 
+			var cardMeta = {
+				"owner": $(val).attr("data-card-owner"),
+				"type": $(val).attr("data-card-type"),
+				"mark": $(val).attr("data-card")
+			}
+			cardsOnTable.push(cardMeta);
 		});
 		
 		$.ajax(ENDPOINT, {
 			method: "POST",
-			dataType: "json",
-			data: JSON.stringify(cardsOnTable),
-			contentType: "application/json; charset=utf-8"
-		}).then(function(result) {
-			console.log($(result));
+			dataType: "JSON",
+			data: JSON.stringify({cardsOnTable: cardsOnTable}),
+			contentType: "application/json",
+			success: onSuccess()
 		});
+	}
+	
+	function onSuccess() {
+		
 	}
 	
 	function handleAnnounce() {

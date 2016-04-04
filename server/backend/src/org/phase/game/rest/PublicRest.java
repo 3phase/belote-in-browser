@@ -25,7 +25,6 @@ public class PublicRest {
 	
 	@Inject
 	public PublicRest(BeloteInBrowser game_) {
-		System.out.println("HAHAHAH");
 		this.game = game_;
 	}
 	
@@ -47,11 +46,9 @@ public class PublicRest {
 	@Path("/room/{room_id}/evaluate_cards")
 	@Consumes({MediaType.APPLICATION_JSON})
 	@Produces("text/plain")
-	public String addCardToCommonDesk(@PathParam("room_id") Integer room_id, 
-			Integer player_id) {
+	public String addCardToCommonDesk(@PathParam("room_id") Integer room_id) {
 		// Evaluate cards that are on the common table
-		return "HAHA";
-		
+		return "HAHHAHA";
 	}
 	
 	@GET
