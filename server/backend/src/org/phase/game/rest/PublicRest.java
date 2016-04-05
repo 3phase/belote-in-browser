@@ -14,6 +14,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.apache.openjpa.json.JSONObject;
 import org.phase.game.entities.Card;
 import org.phase.game.gamecontext.BeloteInBrowser;
 
@@ -42,12 +43,15 @@ public class PublicRest {
 		
 	}
 	
-	@GET
+	@POST
 	@Path("/room/{room_id}/evaluate_cards")
 	@Consumes({MediaType.APPLICATION_JSON})
 	@Produces({MediaType.APPLICATION_JSON})
-	public String addCardToCommonDesk(@PathParam("room_id") Integer room_id) {
-		// Evaluate cards that are on the common table
+	public String addCardToCommonDesk(@PathParam("room_id") Integer room_id,
+			JSONObject cards) {
+		// Evaluate cards that are on the common table and 
+		// choose the strongest one
+//		ArrayList<String> receivedElem = cards.
 		
 		return "HAHHAHA";
 	}

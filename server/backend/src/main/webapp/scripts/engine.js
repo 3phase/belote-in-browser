@@ -151,6 +151,8 @@ $(document).ready(function() {
 		});
 		
 		
+		console.log(JSON.stringify({cardsOnTable: cardsOnTable}));
+		
 		$.ajax(ENDPOINT, {
 			method: "POST",
 			dataType: "JSON",
