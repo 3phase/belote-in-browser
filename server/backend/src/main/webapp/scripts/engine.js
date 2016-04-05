@@ -140,7 +140,7 @@ $(document).ready(function() {
 	
 	function sendCommonTableCards(cards) {
 		var cardsOnTable = []
-		var ENDPOINT = "http://77.70.100.163:8080/05_SampleBackend/rest/play/room/1/evaluate_cards"
+		var ENDPOINT = "http://127.0.0.1:8080/05_SampleBackend/rest/play/room/1/evaluate_cards"
 		$.each(cards, function(key, val) {
 			var cardMeta = {
 				"owner": $(val).attr("data-card-owner"),
@@ -150,17 +150,18 @@ $(document).ready(function() {
 			cardsOnTable.push(cardMeta);
 		});
 		
+		
 		$.ajax(ENDPOINT, {
 			method: "POST",
 			dataType: "JSON",
-			data: JSON.stringify({cardsOnTable: cardsOnTable}),
 			contentType: "application/json",
-			success: onSuccess()
+			data: JSON.stringify({cardsOnTable: cardsOnTable}),
+			success: onSuccess
 		});
 	}
 	
-	function onSuccess() {
-		
+	function onSuccess(result) {
+		console.log("Dobar den evropa " + result);
 	}
 	
 	function handleAnnounce() {

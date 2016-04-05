@@ -42,12 +42,13 @@ public class PublicRest {
 		
 	}
 	
-	@POST
+	@GET
 	@Path("/room/{room_id}/evaluate_cards")
 	@Consumes({MediaType.APPLICATION_JSON})
-	@Produces("text/plain")
+	@Produces({MediaType.APPLICATION_JSON})
 	public String addCardToCommonDesk(@PathParam("room_id") Integer room_id) {
 		// Evaluate cards that are on the common table
+		
 		return "HAHHAHA";
 	}
 	
