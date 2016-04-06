@@ -140,7 +140,7 @@ $(document).ready(function() {
 	
 	function sendCommonTableCards(cards) {
 		var cardsOnTable = []
-		var ENDPOINT = "http://127.0.0.1:8080/05_SampleBackend/rest/play/room/1/evaluate_cards"
+		var ENDPOINT = "http://127.0.0.1:8080/05_SampleBackend/rest/play"
 		$.each(cards, function(key, val) {
 			var cardMeta = {
 				"owner": $(val).attr("data-card-owner"),
@@ -155,8 +155,8 @@ $(document).ready(function() {
 		
 		$.ajax(ENDPOINT, {
 			method: "POST",
-			dataType: "JSON",
-			contentType: "application/json",
+			dataType: "json",
+			contentType: "application/json; charset=utf-8",
 			data: JSON.stringify({cardsOnTable: cardsOnTable}),
 			success: onSuccess
 		});

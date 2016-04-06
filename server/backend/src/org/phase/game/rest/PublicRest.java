@@ -44,16 +44,12 @@ public class PublicRest {
 	}
 	
 	@POST
-	@Path("/room/{room_id}/evaluate_cards")
-	@Consumes({MediaType.APPLICATION_JSON})
-	@Produces({MediaType.APPLICATION_JSON})
-	public String addCardToCommonDesk(@PathParam("room_id") Integer room_id,
-			JSONObject cards) {
+	@Consumes({MediaType.APPLICATION_ATOM_XML, MediaType.APPLICATION_JSON})
+	public void addCardToCommonDesk(JSONObject object) {
 		// Evaluate cards that are on the common table and 
 		// choose the strongest one
 //		ArrayList<String> receivedElem = cards.
 		
-		return "HAHHAHA";
 	}
 	
 	@GET
