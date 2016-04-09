@@ -14,7 +14,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.apache.openjpa.json.JSONObject;
 import org.phase.game.entities.Card;
 import org.phase.game.gamecontext.BeloteInBrowser;
 
@@ -23,6 +22,7 @@ import org.phase.game.gamecontext.BeloteInBrowser;
 public class PublicRest {
 	
 	private final BeloteInBrowser game;
+	private Card card;
 	
 	@Inject
 	public PublicRest(BeloteInBrowser game_) {
@@ -44,12 +44,14 @@ public class PublicRest {
 	}
 	
 	@POST
-	@Consumes({MediaType.APPLICATION_ATOM_XML, MediaType.APPLICATION_JSON})
-	public void addCardToCommonDesk(JSONObject object) {
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces("text/plain")
+	public String addCardToCommonDesk(Card cards) {
 		// Evaluate cards that are on the common table and 
 		// choose the strongest one
 //		ArrayList<String> receivedElem = cards.
-		
+		this.card = new Card(cards.getOwner(), cards.getType(), cards.getMark());
+		return "HAHAHAHA";
 	}
 	
 	@GET

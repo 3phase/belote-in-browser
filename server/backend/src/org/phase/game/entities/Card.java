@@ -2,24 +2,26 @@ package org.phase.game.entities;
 
 public class Card {
 
-	private static long uniqueCardId;
-	private static long colorId;
-	private static long typeId;
+	private final String owner; // Players
+	private final String type;  // Colors
+	private final Character mark; // Card_trumps / Card_suit
 	
-	public Card(long cardId, long color, long type) {
-		uniqueCardId = cardId;
-		colorId = color;
-		typeId = type;
+	public Card(String owner_, String type_, Character cardName) {
+		this.owner = owner_;
+		this.type = type_;
+		this.mark = cardName;
 	}
-	
-	public long getUniqueCardId() {
-		return uniqueCardId;
+
+	public String getOwner() {
+		return owner;
 	}
-	public long getColorId() {
-		return colorId;
+
+	public String getType() {
+		return type;
 	}
-	public long getTypeId() {
-		return typeId;
+
+	public Character getMark() {
+		return mark;
 	}
 	
 }

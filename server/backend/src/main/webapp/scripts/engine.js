@@ -151,14 +151,25 @@ $(document).ready(function() {
 		});
 		
 		
-		console.log(JSON.stringify({cardsOnTable: cardsOnTable}));
+		console.log(JSON.stringify(cardsOnTable));
 		
-		$.ajax(ENDPOINT, {
-			method: "POST",
+		$.ajax({
+			url: "http://127.0.0.1:9193/05_SampleBackend/rest/play",
+			type: "POST",
+			headers: {
+				"Content-Type": "application/json",
+				"Accept": "text/plain"
+			},
+			contentType: "application/json; charset=UTF-8",
+//			accepts: "text/plain; charset=UTF-8",
 			dataType: "json",
-			contentType: "application/json; charset=utf-8",
-			data: JSON.stringify({cardsOnTable: cardsOnTable}),
-			success: onSuccess
+//			contentType: "application/json; encoding=UTF-8",
+			data: JSON.stringify(cardsOnTable),
+			success: onSuccess,
+			beforeSend: function(xhr) {
+				xhr.setRequestHeader("accept", "text/plain");
+				xhr.setRequestHeader("Content-Type", "application/json");
+			}
 		});
 	}
 	
