@@ -45,7 +45,7 @@ public class PublicRest {
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
+	@Produces({MediaType.APPLICATION_JSON})
 	@Path("/room/{roomId}/add-card")
 	public Card addCardToCommonDesk(Card cards) {
 		this.card = new Card(cards.getOwner(), cards.getType(), cards.getMark());

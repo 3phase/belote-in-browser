@@ -168,10 +168,15 @@ $(document).ready(function() {
 			},
 			contentType: "application/json; charset=UTF-8",
 			dataType: "json",
-			data: cardOnTable,
+//			data: JSON.stringify(cardOnTable),
+			data: JSON.stringify({
+				"owner":"Test Name",
+				"type": "Creating test subject to check POST method API",
+				"mark": 'J'
+			}),
 			success: onSuccess,
 			beforeSend: function(xhr) {
-				xhr.setRequestHeader("accept", "text/plain");
+				xhr.setRequestHeader("accept", "application/json");
 				xhr.setRequestHeader("Content-Type", "application/json");
 			}
 		});
