@@ -5,14 +5,26 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Card {
 
-	private final String owner; // Players
-	private final String type;  // Colors
-	private final Character mark; // Card_trumps / Card_suit
+	private String owner; // Players
+	private String type;  // Colors
+	private String mark; // Card_trumps / Card_suit
 	
-	public Card(String owner_, String type_, Character cardName) {
+	public Card(String owner_, String type_, String cardName) {
 		this.owner = owner_;
 		this.type = type_;
 		this.mark = cardName;
+	}
+	
+	public void setOwner(String owner) {
+		this.owner = owner;
+	}
+	
+	public void setType(String type) {
+		this.type = type;
+	}
+	
+	public void setMark(String mark) {
+		this.mark = mark;
 	}
 
 	public String getOwner() {
@@ -23,7 +35,7 @@ public class Card {
 		return type;
 	}
 
-	public Character getMark() {
+	public String getMark() {
 		return mark;
 	}
 	

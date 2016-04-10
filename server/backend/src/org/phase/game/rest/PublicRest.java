@@ -47,8 +47,8 @@ public class PublicRest {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces({MediaType.APPLICATION_JSON})
 	@Path("/room/{roomId}/add-card")
-	public Card addCardToCommonDesk(Card cards) {
-		this.card = new Card(cards.getOwner(), cards.getType(), cards.getMark());
+	public Card addCardToCommonDesk(Card card) {
+		this.card = new Card(card.getOwner(), card.getType(), card.getMark());
 		return(this.card);
 	}
 	

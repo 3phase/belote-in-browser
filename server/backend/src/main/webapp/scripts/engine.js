@@ -158,7 +158,7 @@ $(document).ready(function() {
 		
 		console.log(JSON.stringify(cardOnTable));
 		cardOnTable = JSON.stringify(cardOnTable)
-		
+
 		$.ajax({
 			url: "http://127.0.0.1:8080/05_SampleBackend/rest/play/room/1/add-card",
 			type: "POST",
@@ -166,14 +166,9 @@ $(document).ready(function() {
 				Accept : "application/json",
 				"Content-Type": "application/json"
 			},
-			contentType: "application/json; charset=UTF-8",
 			dataType: "json",
-//			data: JSON.stringify(cardOnTable),
-			data: JSON.stringify({
-				"owner":"Test Name",
-				"type": "Creating test subject to check POST method API",
-				"mark": 'J'
-			}),
+			data: JSON.stringify(cardOnTable),
+			contentType: "application/json; charset=UTF-8",
 			success: onSuccess,
 			beforeSend: function(xhr) {
 				xhr.setRequestHeader("accept", "application/json");
