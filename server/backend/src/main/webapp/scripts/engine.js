@@ -150,21 +150,25 @@ $(document).ready(function() {
 			cardsOnTable.push(cardMeta);
 		});
 		
+		var cardOnTable = {
+			"owner":"south",
+			"type":"diamonds",
+			"mark":"J"
+		}
 		
-		console.log(JSON.stringify(cardsOnTable));
+		console.log(JSON.stringify(cardOnTable));
+		cardOnTable = JSON.stringify(cardOnTable)
 		
 		$.ajax({
-			url: "http://127.0.0.1:9193/05_SampleBackend/rest/play",
+			url: "http://127.0.0.1:8080/05_SampleBackend/rest/play/room/1/add-card",
 			type: "POST",
 			headers: {
-				"Content-Type": "application/json",
-				"Accept": "text/plain"
+				Accept : "application/json",
+				"Content-Type": "application/json"
 			},
 			contentType: "application/json; charset=UTF-8",
-//			accepts: "text/plain; charset=UTF-8",
 			dataType: "json",
-//			contentType: "application/json; encoding=UTF-8",
-			data: JSON.stringify(cardsOnTable),
+			data: cardOnTable,
 			success: onSuccess,
 			beforeSend: function(xhr) {
 				xhr.setRequestHeader("accept", "text/plain");

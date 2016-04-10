@@ -45,13 +45,11 @@ public class PublicRest {
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces("text/plain")
-	public String addCardToCommonDesk(Card cards) {
-		// Evaluate cards that are on the common table and 
-		// choose the strongest one
-//		ArrayList<String> receivedElem = cards.
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/room/{roomId}/add-card")
+	public Card addCardToCommonDesk(Card cards) {
 		this.card = new Card(cards.getOwner(), cards.getType(), cards.getMark());
-		return "HAHAHAHA";
+		return(this.card);
 	}
 	
 	@GET

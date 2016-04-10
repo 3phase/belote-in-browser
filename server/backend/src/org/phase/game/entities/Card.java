@@ -1,5 +1,8 @@
 package org.phase.game.entities;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Card {
 
 	private final String owner; // Players
