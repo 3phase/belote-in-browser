@@ -167,7 +167,7 @@ $(document).ready(function() {
 				"Content-Type": "application/json"
 			},
 			dataType: "json",
-			data: JSON.stringify(cardOnTable),
+			data: JSON.stringify({cardOnTable}),
 			contentType: "application/json; charset=UTF-8",
 			success: onSuccess,
 			beforeSend: function(xhr) {

@@ -1,5 +1,6 @@
 package org.phase.game.rest;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +17,9 @@ import javax.ws.rs.core.MediaType;
 
 import org.phase.game.entities.Card;
 import org.phase.game.gamecontext.BeloteInBrowser;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Path("/play")
 @Singleton
@@ -47,8 +51,12 @@ public class PublicRest {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces({MediaType.APPLICATION_JSON})
 	@Path("/room/{roomId}/add-card")
-	public Card addCardToCommonDesk(Card card) {
-		this.card = new Card(card.getOwner(), card.getType(), card.getMark());
+	public Card addCardToCommonDesk(Card card) throws JsonProcessingException {
+		this.card = card;
+		ObjectMapper mapper = new ObjectMapper();
+		
+		//Object to JSON in String
+		String jsonInString = mapper.writeValueAsString(this.card);
 		return(this.card);
 	}
 	
