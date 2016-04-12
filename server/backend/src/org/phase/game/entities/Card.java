@@ -1,5 +1,6 @@
 package org.phase.game.entities;
 
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement

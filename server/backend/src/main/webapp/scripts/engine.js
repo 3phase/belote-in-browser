@@ -150,28 +150,23 @@ $(document).ready(function() {
 			cardsOnTable.push(cardMeta);
 		});
 		
-		var cardOnTable = {
-			"owner":"south",
-			"type":"diamonds",
-			"mark":"J"
+		var data = {
+		  "owner": "south",
+		  "type": "spades",
+		  "mark": "7"
 		}
 		
-		console.log(JSON.stringify(cardOnTable));
-		cardOnTable = JSON.stringify(cardOnTable)
+		console.log(data);
 
 		$.ajax({
-			url: "http://127.0.0.1:8080/05_SampleBackend/rest/play/room/1/add-card",
 			type: "POST",
-			headers: {
-				Accept : "application/json",
-				"Content-Type": "application/json"
-			},
+			url: "http://127.0.0.1:8080/05_SampleBackend/rest/play/room/1/add-card",
+			data: JSON.stringify(data),
 			dataType: "json",
-			data: JSON.stringify({cardOnTable}),
 			contentType: "application/json; charset=UTF-8",
 			success: onSuccess,
 			beforeSend: function(xhr) {
-				xhr.setRequestHeader("accept", "application/json");
+				xhr.setRequestHeader("accept", "text/plain");
 				xhr.setRequestHeader("Content-Type", "application/json");
 			}
 		});

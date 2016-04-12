@@ -1,6 +1,5 @@
 package org.phase.game.rest;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +13,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import org.phase.game.entities.Card;
 import org.phase.game.gamecontext.BeloteInBrowser;
@@ -48,16 +48,25 @@ public class PublicRest {
 	}
 	
 	@POST
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces({MediaType.APPLICATION_JSON})
+	@Consumes({MediaType.APPLICATION_JSON})
+//	@Produces({MediaType.APPLICATION_JSON})
+	@Produces("text/plain")
 	@Path("/room/{roomId}/add-card")
-	public Card addCardToCommonDesk(Card card) throws JsonProcessingException {
-		this.card = card;
-		ObjectMapper mapper = new ObjectMapper();
-		
-		//Object to JSON in String
-		String jsonInString = mapper.writeValueAsString(this.card);
-		return(this.card);
+	public String addCardToCommonDesk(Card card) {
+		System.out.println("Dobar den evropa");
+//		try {
+//			this.card = card;
+//			ObjectMapper mapper = new ObjectMapper();
+			
+			//Object to JSON in String
+//			String jsonInString = mapper.writeValueAsString(this.card);
+			
+//		} catch (Exception e) {
+//			System.out.println(e);
+//		}
+//		return(this.card);
+//		return this.card;
+		return "AHHAHAHA";
 	}
 	
 	@GET
