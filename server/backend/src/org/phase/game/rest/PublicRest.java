@@ -49,11 +49,10 @@ public class PublicRest {
 	
 	@POST
 	@Consumes({MediaType.APPLICATION_JSON})
-//	@Produces({MediaType.APPLICATION_JSON})
-	@Produces("text/plain")
+	@Produces({MediaType.APPLICATION_JSON})
+//	@Produces("text/plain")
 	@Path("/room/{roomId}/add-card")
-	public String addCardToCommonDesk(Card card) {
-		System.out.println("Dobar den evropa");
+	public Card addCardToCommonDesk(Card card) {
 //		try {
 //			this.card = card;
 //			ObjectMapper mapper = new ObjectMapper();
@@ -65,8 +64,8 @@ public class PublicRest {
 //			System.out.println(e);
 //		}
 //		return(this.card);
-//		return this.card;
-		return "AHHAHAHA";
+		return this.card;
+//		return "AHHAHAHA";
 	}
 	
 	@GET

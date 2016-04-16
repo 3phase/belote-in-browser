@@ -161,19 +161,20 @@ $(document).ready(function() {
 		$.ajax({
 			type: "POST",
 			url: "http://127.0.0.1:8080/05_SampleBackend/rest/play/room/1/add-card",
-			data: JSON.stringify(data),
-			dataType: "json",
-			contentType: "application/json; charset=UTF-8",
-			success: onSuccess,
 			beforeSend: function(xhr) {
-				xhr.setRequestHeader("accept", "text/plain");
+				xhr.setRequestHeader("accept", "application/json");
 				xhr.setRequestHeader("Content-Type", "application/json");
-			}
+			},
+			data: JSON.stringify(data),
+			contentType: "application/json; charset=UTF-8",
+			success: function(result) {
+				console.log("Success " + JSON.stringify(result))
+			},
+			error: function(xhr, status, error) {
+				console.log("Problem " + JSON.stringify(xhr) + "; " + status + "; " + error);
+			},
+			dataType: "json"
 		});
-	}
-	
-	function onSuccess(result) {
-		console.log("Dobar den evropa " + result);
 	}
 	
 	function handleAnnounce() {
