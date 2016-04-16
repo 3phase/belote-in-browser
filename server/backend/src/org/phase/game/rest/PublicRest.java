@@ -53,7 +53,12 @@ public class PublicRest {
 //	@Produces("text/plain")
 	@Path("/room/{roomId}/add-card")
 	public Card addCardToCommonDesk(Card card) {
-//		try {
+		System.out.println("--- Debug ");
+		System.out.println(card.getMark());
+		System.out.println(card.getOwner());
+		System.out.println(card.getType());
+		this.card = card;
+		//		try {
 //			this.card = card;
 //			ObjectMapper mapper = new ObjectMapper();
 			
