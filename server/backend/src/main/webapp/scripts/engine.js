@@ -168,7 +168,7 @@ $(document).ready(function() {
 			data: JSON.stringify(data),
 			contentType: "application/json; charset=UTF-8",
 			success: function(result) {
-				console.log("Success " + JSON.stringify(result))
+				console.log("Success " + JSON.stringify($(result)));
 			},
 			error: function(xhr, status, error) {
 				console.log("Problem " + JSON.stringify(xhr) + "; " + status + "; " + error);
