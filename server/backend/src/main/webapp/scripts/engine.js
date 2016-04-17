@@ -33,8 +33,26 @@ $(document).ready(function() {
 
 	}
 
-	function check_if_combination_avilable(player_key) {
-		// TODO: Send request to server to check player cards
+	function start_game() {
+		console.log("Game was started");
+		$.ajax({
+			type: "GET",
+			url: "http://127.0.0.1:8080/05_SampleBackend/rest/play/room/start_game",
+			beforeSend: function(xhr) {
+				xhr.setRequestHeader("accept", "text/plain");
+			},
+			success: function(result) {
+				console.log("Success " + result);
+			},
+			error: function(xhr, status, error) {
+				console.log("Problem " + JSON.stringify(xhr) + "; " + status + "; " + error);
+			}
+		});
+	}
+	
+	function check_if_combination_within_cards(player_key) {
+		// TODO: Send request to server to check player cards for a combination (tierce, quart etc.)
+		
 	}
 
 	function distinguishCards() {
@@ -69,7 +87,7 @@ $(document).ready(function() {
 				players[key].push(card);
 			}
 			if (count == 3) {
-				check_if_combination_avilable(key);
+				check_if_combination_within_cards(key);
 			}
 		});
 	}
@@ -188,6 +206,7 @@ $(document).ready(function() {
 		}
 	}
 
+	start_game();
 	var game_container = $(".game-container");
 	var original_html = $(".game-container").html();
 	var announce_bar = $(".announce-bar");

@@ -15,7 +15,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import org.phase.game.entities.Card;
-import org.phase.game.entities.Game;
+import org.phase.game.entities.Room;
 import org.phase.game.gamecontext.BeloteInBrowser;
 
 @Path("/play")
@@ -28,6 +28,18 @@ public class PublicRest {
 	@Inject
 	public PublicRest(BeloteInBrowser game_) {
 		this.game = game_;
+		System.out.println("Public rest was initialized");
+	}
+	
+	@GET
+	@Path("/room/start_game")
+	@Produces("text/plain")
+	public Integer startGame() {
+		// TODO: Gotta use sth token like for proving authenticity of request 
+		// since it's perfectly possible to simulate room creation
+		Room room = this.game.createNewRoom();
+		Integer roomId = this.game.rooms.indexOf(room);
+		return roomId;
 	}
 	
 	@PUT
