@@ -8,7 +8,7 @@ public class Room {
 	private long roomId;
 	private int status = 0;
 	private List<Team> teams = new ArrayList<Team>();
-	private Game game;
+	private Game game = new Game();
 	
 	public Room(long room_id) {
 		this.roomId = room_id;

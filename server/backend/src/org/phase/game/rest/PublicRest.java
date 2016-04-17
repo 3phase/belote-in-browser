@@ -15,6 +15,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import org.phase.game.entities.Card;
+import org.phase.game.entities.Game;
 import org.phase.game.entities.Room;
 import org.phase.game.gamecontext.BeloteInBrowser;
 
@@ -22,12 +23,12 @@ import org.phase.game.gamecontext.BeloteInBrowser;
 @Singleton
 public class PublicRest {
 	
-	private final BeloteInBrowser game;
+	private final BeloteInBrowser beloteInBrowser;
 	private Card card;
 	
 	@Inject
 	public PublicRest(BeloteInBrowser game_) {
-		this.game = game_;
+		this.beloteInBrowser = game_;
 		System.out.println("Public rest was initialized");
 	}
 	
@@ -37,8 +38,8 @@ public class PublicRest {
 	public Integer startGame() {
 		// TODO: Gotta use sth token like for proving authenticity of request 
 		// since it's perfectly possible to simulate room creation
-		Room room = this.game.createNewRoom();
-		Integer roomId = this.game.rooms.indexOf(room);
+		Room room = this.beloteInBrowser.createNewRoom();
+		Integer roomId = this.beloteInBrowser.rooms.indexOf(room);
 		return roomId;
 	}
 	
@@ -46,7 +47,7 @@ public class PublicRest {
 	@Path("/room/create")
 	@Consumes({MediaType.APPLICATION_JSON})
 	public void createRoom() {
-		this.game.createNewRoom();
+		this.beloteInBrowser.createNewRoom();
 	}
 	
 	@PUT
@@ -62,11 +63,10 @@ public class PublicRest {
 	@Path("/room/{roomId}/add-card")
 	public Card addCardToCommonDesk(@PathParam("roomId") Integer roomId, List<Card> cards) {
 		System.out.println("--- Debug ");
-//		Game game = this.game.getRoomGame(roomId);
+		Game game = this.beloteInBrowser.getRoomGame(roomId);
 		for (Card card : cards) {
+			game.table.add_card_to_table(card);
 			System.out.println(card.getMark());
-			System.out.println(card.getOwner());
-			System.out.println(card.getType());
 		}
 		return this.card;
 	}
@@ -93,7 +93,7 @@ public class PublicRest {
 	public void addCardsToPlayer(@PathParam("room_id") Integer room_id,
 			@PathParam("team_id") Integer team_id,
 			@PathParam("player_id") Integer player_id, List<Card> cards) {
-		game.getRoomGame(room_id).getPlayerById(team_id, player_id);
+		beloteInBrowser.getRoomGame(room_id).getPlayerById(team_id, player_id);
 	}
 	
 	// TODO: addPlayerToTeam

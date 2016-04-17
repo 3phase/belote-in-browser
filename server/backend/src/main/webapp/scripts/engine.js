@@ -3,6 +3,7 @@ $(document).ready(function() {
 
 	var announce = null;
 	var player_turn = 0;
+	var roomId = -1; // Initial value of room Id
 
 	var colors = ["clubs", "diamonds", "hearts", "spades", "suit", "trumps"];
 	var players = {
@@ -42,6 +43,7 @@ $(document).ready(function() {
 				xhr.setRequestHeader("accept", "text/plain");
 			},
 			success: function(result) {
+				roomId = result;
 				console.log("Success " + result);
 			},
 			error: function(xhr, status, error) {
@@ -176,9 +178,12 @@ $(document).ready(function() {
 		
 		console.log(JSON.stringify(cardsOnTable));
 
+		// TODO: Can be exploited for injection attack, to be enhanced		
+		var url = "http://127.0.0.1:8080/05_SampleBackend/rest/play/room/" + roomId + "/add-card";
+		
 		$.ajax({
 			type: "POST",
-			url: "http://127.0.0.1:8080/05_SampleBackend/rest/play/room/1/add-card",
+			url: url,
 			beforeSend: function(xhr) {
 				xhr.setRequestHeader("accept", "application/json");
 				xhr.setRequestHeader("Content-Type", "application/json");

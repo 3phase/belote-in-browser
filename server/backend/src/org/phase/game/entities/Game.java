@@ -8,9 +8,13 @@ public class Game {
 	private long announce;
 	private int team_one_result;
 	private int team_two_result;
-	private Table table = new Table();
 	private Team announcing_team;
 	private Team[] teams;
+	public Table table = new Table();
+	
+	public Game() {
+		
+	}
 	
 	public Game(int t1res, int t2res, List<Team> teams_) {
 		team_one_result = t1res;
@@ -22,7 +26,7 @@ public class Game {
 		}
 		System.out.println("Got game");
 	}
-	
+
 	public long get_announce() {
 		return announce;
 	}
