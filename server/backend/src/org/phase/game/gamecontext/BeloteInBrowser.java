@@ -9,7 +9,6 @@ import org.phase.game.entities.Game;
 import org.phase.game.entities.Player;
 import org.phase.game.entities.Room;
 
-@Singleton
 public class BeloteInBrowser {
 	
 	public ArrayList<Room> rooms = new ArrayList<Room>();

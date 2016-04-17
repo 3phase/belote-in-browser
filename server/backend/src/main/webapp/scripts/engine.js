@@ -156,7 +156,7 @@ $(document).ready(function() {
 		  "mark": "7"
 		}
 		
-		console.log(data);
+		console.log(JSON.stringify(cardsOnTable));
 
 		$.ajax({
 			type: "POST",
@@ -165,7 +165,7 @@ $(document).ready(function() {
 				xhr.setRequestHeader("accept", "application/json");
 				xhr.setRequestHeader("Content-Type", "application/json");
 			},
-			data: JSON.stringify(data),
+			data: JSON.stringify(cardsOnTable),
 			contentType: "application/json; charset=UTF-8",
 			success: function(result) {
 				console.log("Success " + JSON.stringify($(result)));

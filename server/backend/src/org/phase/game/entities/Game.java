@@ -20,6 +20,7 @@ public class Game {
 			teams[num] = team;
 			num++;
 		}
+		System.out.println("Got game");
 	}
 	
 	public long get_announce() {

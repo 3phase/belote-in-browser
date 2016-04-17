@@ -13,13 +13,10 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 
 import org.phase.game.entities.Card;
+import org.phase.game.entities.Game;
 import org.phase.game.gamecontext.BeloteInBrowser;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Path("/play")
 @Singleton
@@ -50,27 +47,16 @@ public class PublicRest {
 	@POST
 	@Consumes({MediaType.APPLICATION_JSON})
 	@Produces({MediaType.APPLICATION_JSON})
-//	@Produces("text/plain")
 	@Path("/room/{roomId}/add-card")
-	public Card addCardToCommonDesk(Card card) {
+	public Card addCardToCommonDesk(@PathParam("roomId") Integer roomId, List<Card> cards) {
 		System.out.println("--- Debug ");
-		System.out.println(card.getMark());
-		System.out.println(card.getOwner());
-		System.out.println(card.getType());
-		this.card = card;
-		//		try {
-//			this.card = card;
-//			ObjectMapper mapper = new ObjectMapper();
-			
-			//Object to JSON in String
-//			String jsonInString = mapper.writeValueAsString(this.card);
-			
-//		} catch (Exception e) {
-//			System.out.println(e);
-//		}
-//		return(this.card);
+//		Game game = this.game.getRoomGame(roomId);
+		for (Card card : cards) {
+			System.out.println(card.getMark());
+			System.out.println(card.getOwner());
+			System.out.println(card.getType());
+		}
 		return this.card;
-//		return "AHHAHAHA";
 	}
 	
 	@GET
