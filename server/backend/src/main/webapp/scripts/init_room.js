@@ -8,7 +8,7 @@ $(document).ready(function() {
 		
 		$.ajax({
 			type: "GET",
-			url: "http://127.0.0.1:8080/05_SampleBackend/rest/play/room/" + roomId + "/player/" + playerId + "/get-team",
+			url: "http://127.0.0.1:8080/05_SampleBackend/rest/play/room/" + Cookies.get("room-token") + "/player/" + playerId + "/get-team",
 			beforeSend: function(xhr) {
 				xhr.setRequestHeader("accept", "text/plain");
 			},
@@ -30,15 +30,22 @@ $(document).ready(function() {
 			return false;
 		}
 		
+		var player = {
+			"playerId" : userId,
+			"playerNickname" : "TBD",
+			"team" : null,
+			"cards" : null
+		}
+		
 		var url = "http://127.0.0.1:8080/05_SampleBackend/rest/play/room/" + roomId + "/add-player";
 		$.ajax({
 			type: "PUT",
 			url: url,
 			beforeSend: function(xhr) {
-				xhr.setRequestHeader("Content-Type", "text/plain");
+				xhr.setRequestHeader("Content-Type", "application/json");
 			},
-			data: userId.toString(),
-			contentType: "text/plain; charset=UTF-8",
+			data: JSON.stringify(player),
+			contentType: "application/json; charset=UTF-8",
 			success: function(result) {
 				actionField.html("");
 				actionField.html("You have successfully joined room " + roomId + "!");

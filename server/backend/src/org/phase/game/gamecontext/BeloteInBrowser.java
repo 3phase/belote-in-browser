@@ -24,10 +24,11 @@ public class BeloteInBrowser {
 		allPlayers.add(player);
 	}
 	
-	public void addPlayerToRoom(Room room, Player player) throws Exception {
-		if (!rooms.contains(room)) {
+	public void addPlayerToRoom(Integer roomId, Player player) throws Exception {
+		if (rooms.get(roomId) == null) {
 			throw new IllegalArgumentException("No such room instance in the game.");
 		}
+		Room room = this.rooms.get(roomId);
 		room.addPlayer(player);
 	}
 	

@@ -70,12 +70,18 @@ public class PublicRest {
 		
 	@PUT
 	@Path("/room/{id}/add-player")
-	@Consumes("text/plain")
-	public void addPlayerToRoom(@PathParam("id") Integer roomId, String userId) {
-		long playerId = Long.parseLong(userId);
-		System.out.println("PUT Request UID " + playerId);
+	@Consumes({MediaType.APPLICATION_JSON})
+	public void addPlayerToRoom(@PathParam("id") Integer roomId, Player player) {
+//		long playerId = Long.parseLong(userId);
+//		System.out.println("PUT Request UID " + playerId);
 		Room room = this.beloteInBrowser.rooms.get(roomId);
-		this.beloteInBrowser.addPlayerToRoomById(room, playerId);
+//		this.beloteInBrowser.addPlayerToRoomById(room, playerId);
+		try {
+			this.beloteInBrowser.addPlayerToRoom(roomId, player);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	@GET
@@ -111,13 +117,13 @@ public class PublicRest {
 	@Produces("text/plain")
 	public long getTeam(@PathParam("roomId") Integer roomId, 
 			@PathParam("playerId") long playerId) {
+		System.out.println("TEST AND DEBUG " + roomId);
 		for (Team team : this.beloteInBrowser.rooms.get(roomId).getAllTeams()) {
 			if (team.checkIfContains(playerId)) {
 				return team.get_team_id();
 			}
 		}
-		System.out.println("ROOOOM IIIIDDD " + roomId);
-		return playerId;
+		return -1;
 	}
 	
 	@POST
@@ -135,7 +141,6 @@ public class PublicRest {
 	@Path("/room/{id}/is-available")
 	@Produces("text/plain")
 	public Integer isRoomAvailable(@PathParam("id") Integer roomId) {
-		System.out.println(this.beloteInBrowser.rooms.size());
 		return this.beloteInBrowser.rooms.get(roomId).get_status();
 	}
 
