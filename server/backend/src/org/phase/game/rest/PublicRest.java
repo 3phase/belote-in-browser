@@ -116,7 +116,8 @@ public class PublicRest {
 				return team.get_team_id();
 			}
 		}
-		return -1;
+		System.out.println("ROOOOM IIIIDDD " + roomId);
+		return playerId;
 	}
 	
 	@POST
@@ -134,6 +135,7 @@ public class PublicRest {
 	@Path("/room/{id}/is-available")
 	@Produces("text/plain")
 	public Integer isRoomAvailable(@PathParam("id") Integer roomId) {
+		System.out.println(this.beloteInBrowser.rooms.size());
 		return this.beloteInBrowser.rooms.get(roomId).get_status();
 	}
 

@@ -5,12 +5,12 @@ import java.util.List;
 
 public class Room {
 	
-	private long roomId;
+	private Integer roomId;
 	private int status = 0;
 	private List<Team> teams = new ArrayList<Team>();
 	private Game game = new Game();
 	
-	public Room(long room_id) {
+	public Room(Integer room_id) {
 		this.roomId = room_id;
 		System.out.println("ROOM ID IS " + this.roomId);
 		createTeams();
