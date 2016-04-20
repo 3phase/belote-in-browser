@@ -8,7 +8,7 @@ public class Card {
 
 	// POJO Class
 	
-	private String owner; // Players
+	private long owner; // Players
 	private String type;  // Colors
 	private String mark; // Card_trumps / Card_suit
 		
@@ -16,8 +16,8 @@ public class Card {
 	public Card() {
 	}
 	
-	public void setOwner(String owner) {
-		this.owner = owner;
+	public void setOwner(long l) {
+		this.owner = l;
 	}
 	
 	public void setType(String type) {
@@ -28,7 +28,7 @@ public class Card {
 		this.mark = mark;
 	}
 
-	public String getOwner() {
+	public long getOwner() {
 		return owner;
 	}
 

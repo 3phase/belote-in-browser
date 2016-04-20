@@ -2,6 +2,7 @@ package org.phase.game.entities;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Game {
 
@@ -31,9 +32,20 @@ public class Game {
 		}
 	}
 	
-	public void getCards() {
-		for (Card card : cards) {
-			System.out.println(card.getMark() + " " + card.getType());
+	private void distributeCards() {
+		Random rand = new Random();
+		for (Team team : teams) {
+			for (Player player : team.getPlayers()) {
+				List<Card> cardsForPlayer = new ArrayList<Card>();
+				for (int i = 0; i <= 4; i++) {
+					int  n = rand.nextInt(cards.size());
+					Card cardToAdd = cards.get(n);
+					cardToAdd.setOwner(player.getPlayerId());
+					cardsForPlayer.add(cardToAdd);
+					cards.remove(n);
+				}
+				player.setCards(cardsForPlayer);
+			}
 		}
 	}
 	
@@ -50,15 +62,13 @@ public class Game {
 		this.teams = teams;
 	}
 	
+	public void startGame() {
+		distributeCards();
+	}
+	
 /*	public Player getPlayerById(Integer team_id, Integer player_id) {
 		Team wanted_team = teams[team_id];
 		return wanted_team.get_player(player_id);
 	}
 */	
-	
-	public static void main(String[] args) {
-		Game game = new Game();
-		game.getCards();
-	}
-	
 }
