@@ -136,7 +136,7 @@ public class PublicRest {
 	public Integer isRoomAvailable(@PathParam("id") Integer roomId) {
 		return this.beloteInBrowser.rooms.get(roomId).get_status();
 	}
-	
+
 	// TODO: addPlayerToTeam	
 	
 }

@@ -66,6 +66,9 @@ public class Game {
 		distributeCards();
 	}
 	
+//	When the last person requests to join in, the server should show first 5 cards of each user;
+//	After that, input should be taken and so is the color determined
+	
 /*	public Player getPlayerById(Integer team_id, Integer player_id) {
 		Team wanted_team = teams[team_id];
 		return wanted_team.get_player(player_id);
