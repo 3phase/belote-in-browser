@@ -62,7 +62,7 @@ $(document).ready(function() {
 	
 	function addUserToRoom() {
 		var userId = Cookies.get("user-token");
-		var url = "http://127.0.0.1:8080/05_SampleBackend/rest/play/room/" + roomId + "/add-player";
+		var url = "http://127.0.0.1:8080/05_SampleBackend/rest/play/room/" + roomId + "/add-player/id";
 		$.ajax({
 			type: "PUT",
 			url: url,
