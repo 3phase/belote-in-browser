@@ -106,15 +106,6 @@ public class PublicRest {
 		return true;
 	}
 	
-	@PUT
-	@Path("/room/{room_id}/team/{team_id}/player/{player_id}/add_cards")
-	@Consumes({MediaType.APPLICATION_JSON})
-	public void addCardsToPlayer(@PathParam("room_id") Integer room_id,
-			@PathParam("team_id") Integer team_id,
-			@PathParam("player_id") Integer player_id, List<Card> cards) {
-		beloteInBrowser.getRoomGame(room_id).getPlayerById(team_id, player_id);
-	}
-	
 	@GET
 	@Path("/room/{roomId}/player/{playerId}/get-team")
 	@Produces("text/plain")
