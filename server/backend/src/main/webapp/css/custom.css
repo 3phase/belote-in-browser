@@ -12,7 +12,7 @@ button:disabled {
 
 .announce-bar {
 	width: 800px;
-	height: 70px;
+	min-height: 50px;
 	margin: 60px auto 0;
 	border: 1px solid;
 	border-bottom: none;
@@ -36,3 +36,33 @@ button:disabled {
 .card-holder.south { border-top: 1px solid; }
 .card-holder.east { border-left: 1px solid; }
 .card-holder.west { border-right: 1px solid; }
+
+.announce-bar p.page-desc{
+	font-family: 'Niconne', cursive;
+	font-size: 2.4em;
+	color: #4C4C4C;
+	text-align: center;
+}
+
+.play-options {
+	width: 800px;
+	min-height: 600px;
+	margin: -10px auto;
+	border: 1px solid #000;
+}
+
+.playOpt {
+	height: 100px;
+	width: 32.5%;
+	float: left;
+	margin: 3px;
+	border: 1px solid #a8a8a8;
+	text-align: center;
+    line-height: 100px;
+    background-color: #DEDEDE;
+}
+
+.playOpt:hover {
+	background-color: #a8a8a8;
+	box-shadow: 0 0 2px #bbb;
+}
