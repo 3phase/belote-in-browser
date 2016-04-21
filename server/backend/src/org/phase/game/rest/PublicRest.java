@@ -17,6 +17,7 @@ import javax.ws.rs.core.MediaType;
 import org.phase.game.entities.Card;
 import org.phase.game.entities.Game;
 import org.phase.game.entities.Room;
+import org.phase.game.entities.Team;
 import org.phase.game.gamecontext.BeloteInBrowser;
 
 @Path("/play")
@@ -41,6 +42,18 @@ public class PublicRest {
 		return roomId;
 	}
 	
+	@GET
+	@Path("/room/all")
+	@Produces({MediaType.APPLICATION_JSON})
+	public List<Long> getAllAvailableRooms() {
+		// TODO: Check if there are any free player positions in room		
+		List<Long> listOfIds = new ArrayList<Long>();
+		for (Room room : this.beloteInBrowser.rooms) {
+			listOfIds.add(room.get_id());
+		}
+		return listOfIds;
+	}
+		
 	@PUT
 	@Path("/room/{id}/add")
 	@Consumes({MediaType.APPLICATION_JSON})

@@ -44,6 +44,10 @@ public class Room {
 		}
 	}
 	
+	public long get_id() {
+		return this.roomId;
+	}
+	
 	public void start_game() throws Exception {
 		if (teams.size() == 2 && status == 0) {
 			status = 1;
