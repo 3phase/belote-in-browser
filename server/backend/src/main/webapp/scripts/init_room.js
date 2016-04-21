@@ -2,7 +2,11 @@ $(document).ready(function() {
 	"use strict";
 
 	function createRoom() {
-		console.log("Creating room....");
+		var actionField = $(".play-options");
+		
+		
+		actionField.html("");
+		actionField.append("Room number X was created. You can now <a href=\"game.html\">start playing</a>...");
 	}
 	
 	function joinRoom() {

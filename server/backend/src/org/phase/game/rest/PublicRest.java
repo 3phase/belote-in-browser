@@ -35,19 +35,21 @@ public class PublicRest {
 	@GET
 	@Path("/room/start_game")
 	@Produces("text/plain")
-	public Integer startGame() {
+	public void startGame() {
 		// TODO: Gotta use sth token like for proving authenticity of request 
 		// since it's perfectly possible to simulate room creation
+		//	Room room = this.beloteInBrowser.createNewRoom();
+		//		Integer roomId = this.beloteInBrowser.rooms.indexOf(room);
+		//		return roomId;
+	}
+	
+	@GET
+	@Path("/room/create")
+	@Produces("text/plain")
+	public Integer createRoom() {
 		Room room = this.beloteInBrowser.createNewRoom();
 		Integer roomId = this.beloteInBrowser.rooms.indexOf(room);
 		return roomId;
-	}
-	
-	@PUT
-	@Path("/room/create")
-	@Consumes({MediaType.APPLICATION_JSON})
-	public void createRoom() {
-		this.beloteInBrowser.createNewRoom();
 	}
 	
 	@PUT
