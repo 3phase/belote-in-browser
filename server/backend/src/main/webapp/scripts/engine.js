@@ -21,6 +21,15 @@ $(document).ready(function() {
 
 	var cards = {};
 
+	function checkIfStartable() {
+		var roomFromCookie = Cookies.get("room-token"); 
+		if (roomFromCookie != undefined) {
+			roomId = roomFromCookie;
+			return true;
+		}
+		return false;
+	}
+	
 	function processAnnounce(color) {
 		var color_idx = $.inArray(color, colors);
 		var buttons = $(".announce-color")
@@ -32,24 +41,6 @@ $(document).ready(function() {
 			announce = colors[color_idx];
 		}
 
-	}
-
-	function start_game() {
-		console.log("Game was started");
-		$.ajax({
-			type: "GET",
-			url: "http://127.0.0.1:8080/05_SampleBackend/rest/play/room/start_game",
-			beforeSend: function(xhr) {
-				xhr.setRequestHeader("accept", "text/plain");
-			},
-			success: function(result) {
-				roomId = result;
-				console.log("Success " + result);
-			},
-			error: function(xhr, status, error) {
-				console.log("Problem " + JSON.stringify(xhr) + "; " + status + "; " + error);
-			}
-		});
 	}
 	
 	function check_if_combination_within_cards(player_key) {
@@ -211,7 +202,13 @@ $(document).ready(function() {
 		}
 	}
 
-	start_game();
+	if (checkIfStartable() != true) {
+		$(".game-container").html("");
+		$(".game-container").append("You cannot join to a room you haven't logged into first.<br>" +
+				"Join in <a href=\"initial_room.html\">here</a>.");
+		return false;
+	}
+	
 	var game_container = $(".game-container");
 	var original_html = $(".game-container").html();
 	var announce_bar = $(".announce-bar");

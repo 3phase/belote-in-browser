@@ -16,8 +16,10 @@ $(document).ready(function() {
 			success: function(result) {
 				roomId = result;
 				actionField.append("Room with ID <strong>" + roomId + "</strong> was created. You can now <a href=\"game.html\">start playing</a>...");
+				if (Cookies.get("room-token") != undefined) {
+					Cookies.remove("room-token");
+				}
 				Cookies.set("room-token", roomId, {path: "game.html"});
-				console.log(Cookies.get("room-token"));
 			},
 			error: function(xhr, status, error) {
 				actionField.append("Problem while creating room. " + JSON.stringify(xhr) + "; " + status + "; " + error);
