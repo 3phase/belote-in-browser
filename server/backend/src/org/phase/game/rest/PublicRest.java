@@ -105,8 +105,9 @@ public class PublicRest {
 	@Path("/player/create")
 	@Consumes({MediaType.APPLICATION_JSON})
 	@Produces("text/plain")
-	public void createPlayer(Player player) {
-		
+	public Integer createPlayer(Player player) {
+		this.beloteInBrowser.addPlayerToList(player);
+		return 1;
 	}
 	
 	// TODO: addPlayerToTeam	

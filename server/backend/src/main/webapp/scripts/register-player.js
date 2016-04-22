@@ -5,7 +5,7 @@ $(document).ready(function() {
 		var playerId = $(".id").val();
 		var playerNickname = $(".nickname").val();
 		
-		if (playerNick === null) {
+		if (playerNickname === null) {
 			// Don't set username
 			playerNickname = "-1";
 		}
@@ -28,7 +28,8 @@ $(document).ready(function() {
 			data: JSON.stringify(player),
 			contentType: "application/json; charset=UTF-8",
 			success: function(result) {
-				console.log("Success " + JSON.stringify($(result)));
+				var playerId = result; 
+				console.log("Success Haha " + result);
 			},
 			error: function(xhr, status, error) {
 				console.log("Problem " + JSON.stringify(xhr) + "; " + status + "; " + error);
