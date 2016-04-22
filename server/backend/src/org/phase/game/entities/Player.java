@@ -3,13 +3,16 @@ package org.phase.game.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Player {
 
 	private long playerId;
 	private String playerNickname;
 	private Team team;
 	private List<Card> cards = new ArrayList<Card>();
-
+	
 	public Player() {
 		
 	}
@@ -18,24 +21,32 @@ public class Player {
 		return playerId;
 	}
 	
-	public void addCardsToPlayer(Card card) {
-		this.cards.add(card);
+	public void setPlayerId(long playerId) {
+		this.playerId = playerId;
 	}
 	
-	public void setPlayerTeam(Team team) {
+	public String getPlayerNickname() {
+		return playerNickname;
+	}
+	
+	public void setPlayerNickname(String playerNickname) {
+		this.playerNickname = playerNickname;
+	}
+	
+	public Team getTeam() {
+		return team;
+	}
+	
+	public void setTeam(Team team) {
 		this.team = team;
 	}
 	
-	public Team getPlayerTeam() {
-		return this.team;
+	public List<Card> getCards() {
+		return cards;
 	}
 	
-	public void setPlayerNickname(String nickname) {
-		this.playerNickname = nickname;
+	public void setCards(List<Card> cards) {
+		this.cards = cards;
 	}
-	
-	public String getPlayerNickName() {
-		return this.playerNickname;
-	}
-	
+
 }

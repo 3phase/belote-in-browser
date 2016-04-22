@@ -100,7 +100,14 @@ public class PublicRest {
 		beloteInBrowser.getRoomGame(room_id).getPlayerById(team_id, player_id);
 	}
 	
-	// TODO: addPlayerToTeam
-	// TODO: createNewRoom	
+	@POST
+	@Path("/player/create")
+	@Consumes({MediaType.APPLICATION_JSON})
+	@Produces("text/plain")
+	public void createPlayer() {
+		
+	}
+	
+	// TODO: addPlayerToTeam	
 	
 }
