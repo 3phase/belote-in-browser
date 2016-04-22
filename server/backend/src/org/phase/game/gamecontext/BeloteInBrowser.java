@@ -12,6 +12,7 @@ import org.phase.game.entities.Room;
 public class BeloteInBrowser {
 	
 	public ArrayList<Room> rooms = new ArrayList<Room>();
+	public ArrayList<Player> allPlayers = new ArrayList<Player>();
 
 	public Room createNewRoom() {
 		Room room = new Room(rooms.size());
@@ -19,11 +20,32 @@ public class BeloteInBrowser {
 		return(room);
 	}
 	
+	public void addPlayerToList(Player player) {
+		allPlayers.add(player);
+	}
+	
 	public void addPlayerToRoom(Room room, Player player) throws Exception {
 		if (!rooms.contains(room)) {
 			throw new IllegalArgumentException("No such room instance in the game.");
 		}
 		room.addPlayer(player);
+	}
+	
+	public void addPlayerToRoomById(Room room, long playerId) {
+		if (!rooms.contains(room)) {
+			throw new IllegalArgumentException("No such room instance in the game.");
+		}
+		Player playerById = null;
+		for (Player player : allPlayers) {
+			if (player.getPlayerId() == playerId) {
+				playerById = player;
+			}
+		}
+		if (playerById == null) {
+			throw new IllegalArgumentException("No such player in the game.");
+		}
+		room.addPlayer(playerById);
+		
 	}
 	
 	public Game getRoomGame(Integer room_id) {
