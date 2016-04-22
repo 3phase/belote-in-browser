@@ -75,3 +75,7 @@ div.room {
 	text-align: center;
 	margin: 20px auto;
 }
+
+div.inputs {
+	margin: 30px;
+}

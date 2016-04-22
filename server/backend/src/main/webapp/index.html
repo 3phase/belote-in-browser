@@ -1,24 +1,46 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Belote in browser</title>
-<script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
+	<title>Belote Game</title>
+	<link href='https://fonts.googleapis.com/css?family=Niconne' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/custom.css">
 </head>
 <body>
- To play belote in your browser follow <a href="http://j.mp/belot4encencencencence">this link</a> <br>
- or paste that <input type="text" class="url" value="http://j.mp/belot4encencencencence" disabled> <input type="submit" class="copyToClipboard" value="Copy to clipboard"> to your browser.
- <script type="text/javascript">
- 	$("document").ready(function() {
- 		"use strict";
- 		
- 		$(".copyToClipboard").on("click", function() {
- 			var target = $(".url");
- 			target.focus();
- 		    target[0].setSelectionRange(0, target.attr("value").length);
- 			var clipboard = document.execCommand("copy");
- 		});
- 	});
- </script>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Belote</a>
+        </div>
+      </div>
+    </nav>
+	
+	<div class="announce-bar">
+		<p class="page-desc">Set your details...</p>
+	</div>
+	<div class="play-options">
+		<div class="inputs">
+			<div class="input-group">
+		      <div class="input-group-addon">ID</div>
+		      <input type="text" class="form-control" id="exampleInputAmount" placeholder="ID (Will be set automatically)" disabled>
+		    </div>
+			<div class="input-group" style="margin-top:5px;">
+		      <div class="input-group-addon">Nick</div>
+		      <input type="text" class="form-control" id="exampleInputAmount" placeholder="Nickname (if unset, direction shortcut will be used)">
+		    </div>
+		    <button type="button" class="btn btn-success" style="width: 100px; margin-top:5px; float: right;">Go!</button>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="libs/jquery-2.2.1.min.js"></script>
+	<script type="text/javascript" src="libs/js.cookie.js"></script>
+	<script type="text/javascript" src="libs/bootstrap.min.js"></script>
+	<script type="text/javascript" src="scripts/init_room.js"></script>
 </body>
 </html>
