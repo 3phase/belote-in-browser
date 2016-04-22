@@ -32,7 +32,7 @@ $(document).ready(function() {
 		
 	}
 	
-	function getRooms() {
+	function getRooms(event) {
 		var actionField = $(".play-options");
 		actionField.html("");
 		
@@ -43,7 +43,9 @@ $(document).ready(function() {
 				xhr.setRequestHeader("accept", "application/json");
 			},
 			success: function(result) {
-				actionField.append(JSON.stringify($(result)));
+				if (event === "fetch") {
+					fetchData($(result), actionField);
+				}
 			},
 			error: function(xhr, status, error) {
 				actionField.append("Problem while fetching rooms. " + JSON.stringify(xhr) + "; " + status + "; " + error);
@@ -51,8 +53,24 @@ $(document).ready(function() {
 		});
 	}
 	
+	function fetchData(data, actionField) {
+		data = JSON.stringify(data);
+		var jsonData = JSON.parse(data);
+		console.log("Data length " + jsonData.length);
+		
+		var resultLength = jsonData.length;		
+		delete jsonData.length;
+		
+		$.each(jsonData, function(key, value) {
+			actionField.append("<div class=\"room\">" + key + "</div>");
+		});
+		
+	}
+	
 	$(".playOpt.create-room").on("click", createRoom);
 	$(".playOpt.join-room").on("click", joinRoom);
-	$(".playOpt.see-available").on("click", getRooms);
+	$(".playOpt.see-available").on("click", function() {
+		getRooms("fetch");
+	});
 	
 });

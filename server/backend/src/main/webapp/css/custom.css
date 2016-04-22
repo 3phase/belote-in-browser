@@ -66,3 +66,12 @@ button:disabled {
 	background-color: #a8a8a8;
 	box-shadow: 0 0 2px #bbb;
 }
+
+div.room {
+	width: 300px;
+	height: 100px;
+	line-height: 100px;
+	border: 1px solid #000;
+	text-align: center;
+	margin: 20px auto;
+}
