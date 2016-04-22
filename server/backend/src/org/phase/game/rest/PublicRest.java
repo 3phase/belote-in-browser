@@ -16,6 +16,7 @@ import javax.ws.rs.core.MediaType;
 
 import org.phase.game.entities.Card;
 import org.phase.game.entities.Game;
+import org.phase.game.entities.Player;
 import org.phase.game.entities.Room;
 import org.phase.game.entities.Team;
 import org.phase.game.gamecontext.BeloteInBrowser;
@@ -104,7 +105,7 @@ public class PublicRest {
 	@Path("/player/create")
 	@Consumes({MediaType.APPLICATION_JSON})
 	@Produces("text/plain")
-	public void createPlayer() {
+	public void createPlayer(Player player) {
 		
 	}
 	
