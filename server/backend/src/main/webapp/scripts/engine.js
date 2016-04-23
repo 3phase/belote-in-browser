@@ -22,8 +22,9 @@ $(document).ready(function() {
 	var cards = {};
 
 	function checkIfStartable() {
-		var roomFromCookie = Cookies.get("room-token"); 
-		if (roomFromCookie != undefined) {
+		var roomFromCookie = Cookies.get("room-token");
+		var userIdFromCookie = Cookies.get("user-token");
+		if ((roomFromCookie != undefined) && (userIdFromCookie != undefined)) {
 			roomId = roomFromCookie;
 			return true;
 		}
@@ -204,7 +205,7 @@ $(document).ready(function() {
 
 	if (checkIfStartable() != true) {
 		$(".game-container").html("");
-		$(".game-container").append("You cannot join to a room you haven't logged into first.<br>" +
+		$(".game-container").append("You cannot join a room where you haven't logged in first.<br>" +
 				"Join in <a href=\"initial_room.html\">here</a>.");
 		return false;
 	}

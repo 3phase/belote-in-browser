@@ -67,6 +67,13 @@ $(document).ready(function() {
 		
 	}
 	
+	if (Cookies.get("user-token") == undefined) {
+		// User not logged
+		var actionField = $(".play-options");
+		actionField.html("");
+		actionField.html("You must <a href=\"index.html\">set your user credientials</a> first.");
+		return false;
+	}
 	$(".playOpt.create-room").on("click", createRoom);
 	$(".playOpt.join-room").on("click", joinRoom);
 	$(".playOpt.see-available").on("click", function() {
