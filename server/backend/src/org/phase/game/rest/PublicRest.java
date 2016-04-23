@@ -58,8 +58,11 @@ public class PublicRest {
 	@PUT
 	@Path("/room/{id}/add-player")
 	@Consumes("text/plain")
-	public void addPlayerToRoom(@PathParam("id") Integer room_id, String userId) {
-		System.out.println("HAHAHH USER ID " + userId);
+	public void addPlayerToRoom(@PathParam("id") Integer roomId, String userId) {
+		long playerId = Long.parseLong(userId);
+		System.out.println("PUT Request UID " + playerId);
+		Room room = this.beloteInBrowser.rooms.get(roomId);
+		this.beloteInBrowser.addPlayerToRoomById(room, playerId);
 	}
 	
 	@POST
@@ -105,9 +108,11 @@ public class PublicRest {
 	@Path("/player/create")
 	@Consumes({MediaType.APPLICATION_JSON})
 	@Produces("text/plain")
-	public Integer createPlayer(Player player) {
+	public long createPlayer(Player player) {
+		long playerId = this.beloteInBrowser.allPlayers.size();
+		player.setPlayerId(playerId);
 		this.beloteInBrowser.addPlayerToList(player);
-		return (this.beloteInBrowser.allPlayers.size() - 1);
+		return playerId;
 	}
 	
 	// TODO: addPlayerToTeam	

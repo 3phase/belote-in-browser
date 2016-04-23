@@ -13,7 +13,7 @@ public class BeloteInBrowser {
 	
 	public ArrayList<Room> rooms = new ArrayList<Room>();
 	public ArrayList<Player> allPlayers = new ArrayList<Player>();
-
+	
 	public Room createNewRoom() {
 		Room room = new Room(rooms.size());
 		rooms.add(room);
