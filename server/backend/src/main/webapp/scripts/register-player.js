@@ -1,6 +1,13 @@
 $(document).ready(function() {
 	"use strict";
 	
+	function setLoggedUserCookie(userId) {
+		if (Cookies.get("user-token") != undefined) {
+			Cookies.remove("user-token");
+		}
+		Cookies.set("user-token", userId, {path: "/"});
+	}
+	
 	function createPlayer() {
 		var playerId = $(".id").val();
 		var playerNickname = $(".nickname").val();
@@ -29,6 +36,7 @@ $(document).ready(function() {
 			contentType: "application/json; charset=UTF-8",
 			success: function(result) {
 				var playerId = result; 
+				setLoggedUserCookie(playerId);
 				$(".play-options").html("");
 				$(".play-options").html("Your ID is " + playerId + ". You can <a href=\"initial_room.html\">join a room</a> now...");
 			},
