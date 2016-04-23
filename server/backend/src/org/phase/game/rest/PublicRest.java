@@ -54,6 +54,19 @@ public class PublicRest {
 		}
 		return listOfIds;
 	}
+	
+	@GET
+	@Path("/room/all/available")
+	@Produces({MediaType.APPLICATION_JSON})
+	public List<Long> getCountOfAllRooms() {
+		List<Long> listOfIds = new ArrayList<Long>();
+		for (Room room : this.beloteInBrowser.rooms) {
+			if (room.get_status() == 0) {
+				listOfIds.add(room.get_id());
+			}
+		}
+		return listOfIds;
+	}
 		
 	@PUT
 	@Path("/room/{id}/add-player")
@@ -113,6 +126,13 @@ public class PublicRest {
 		player.setPlayerId(playerId);
 		this.beloteInBrowser.addPlayerToList(player);
 		return playerId;
+	}
+	
+	@GET
+	@Path("/room/{id}/is-available")
+	@Produces("text/plain")
+	public Integer isRoomAvailable(@PathParam("id") Integer roomId) {
+		return this.beloteInBrowser.rooms.get(roomId).get_status();
 	}
 	
 	// TODO: addPlayerToTeam	

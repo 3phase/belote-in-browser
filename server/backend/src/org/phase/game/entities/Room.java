@@ -9,7 +9,6 @@ public class Room {
 	private int status = 0;
 	private List<Team> teams = new ArrayList<Team>();
 	private Game game = new Game();
-	private boolean roomStatus = false; 
 	
 	public Room(long room_id) {
 		this.roomId = room_id;
@@ -71,18 +70,6 @@ public class Room {
 	
 	public Game get_game() {
 		return this.game;
-	}
-	
-	public void setStatus() {
-		this.roomStatus = true;
-	}
-	
-	public void unsetStatus() {
-		this.roomStatus = false;
-	}
-	
-	public boolean getStatus() {
-		return this.roomStatus;
 	}
 	
 }

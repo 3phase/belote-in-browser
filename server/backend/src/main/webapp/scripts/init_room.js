@@ -52,8 +52,43 @@ $(document).ready(function() {
 		
 	}
 	
-	function joinRoom() {
+	function getCountOfAvailableRooms() {
+		var roomCount = 0;
+		$.ajax({
+			type: "GET",
+			url: "http://127.0.0.1:8080/05_SampleBackend/rest/play/room/all/count",
+			beforeSend: function(xhr) {
+				xhr.setRequestHeader("accept", "text/plain");
+			},
+			success: function(result) {
+				roomCount = result;
+			},
+			error: function(xhr, status, error) {
+				actionField.append("Problem " + JSON.stringify(xhr) + "; " + status + "; " + error);
+				return false;
+			}
+		});
 		
+		return roomCount;
+	}
+	
+	function joinRoom() {
+		var actionField = $(".play-options");
+		actionField.html("");		
+		
+		$.ajax({
+			type: "GET",
+			url: "http://127.0.0.1:8080/05_SampleBackend/rest/play/room/all/available",
+			beforeSend: function(xhr) {
+				xhr.setRequestHeader("accept", "application/json");
+			},
+			success: function(result) {
+				fetchData($(result), actionField);
+			},
+			error: function(xhr, status, error) {
+				actionField.append("Problem " + JSON.stringify(xhr) + "; " + status + "; " + error);
+			}
+		});
 	}
 	
 	function getRooms(event) {
@@ -86,7 +121,7 @@ $(document).ready(function() {
 		delete jsonData.length;
 		
 		$.each(jsonData, function(key, value) {
-			actionField.append("<div class=\"room\">" + key + "</div>");
+			actionField.append("<div class=\"room\" id=\"" + key + "\">" + key + "</div>");
 		});
 		
 	}
@@ -102,6 +137,10 @@ $(document).ready(function() {
 	$(".playOpt.join-room").on("click", joinRoom);
 	$(".playOpt.see-available").on("click", function() {
 		getRooms("fetch");
+	});
+	
+	$(".play-options").on("click", "div.room", function() {
+		console.log($(this).attr("id"));
 	});
 	
 });
