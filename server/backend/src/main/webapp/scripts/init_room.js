@@ -1,9 +1,32 @@
 $(document).ready(function() {
 	"use strict";
-
+	
+	var roomId = -1;
+	
+	function addUserToRoom() {
+		var userId = Cookies.get("user-token");
+		var url = "http://127.0.0.1:8080/05_SampleBackend/rest/play/room/" + roomId + "/add-player/";
+		$.ajax({
+			type: "PUT",
+			url: url,
+			beforeSend: function(xhr) {
+				xhr.setRequestHeader("Content-Type", "text/plain");
+			},
+			data: userId.toString(),
+			contentType: "text/plain; charset=UTF-8",
+			success: function(result) {
+				console.log("Successful PUT request");
+			},
+			error: function(xhr, status, error) {
+				console.log("Problem " + JSON.stringify(xhr) + "; " + status + "; " + error);
+				$(document).html("Error 5xx - A problem occurred. Cannot continue.");
+				return false;
+			}
+		});
+	}
+	
 	function createRoom() {
 		var actionField = $(".play-options");
-		var roomId = -1;
 		
 		actionField.html("");
 		
@@ -15,6 +38,7 @@ $(document).ready(function() {
 			},
 			success: function(result) {
 				roomId = result;
+				addUserToRoom();
 				actionField.append("Room with ID <strong>" + roomId + "</strong> was created. You can now <a href=\"game.html\">start playing</a>...");
 				if (Cookies.get("room-token") != undefined) {
 					Cookies.remove("room-token");

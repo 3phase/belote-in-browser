@@ -56,10 +56,10 @@ public class PublicRest {
 	}
 		
 	@PUT
-	@Path("/room/{id}/add")
-	@Consumes({MediaType.APPLICATION_JSON})
-	public void addPlayerToRoom(@PathParam("id") Integer room_id) {
-		
+	@Path("/room/{id}/add-player")
+	@Consumes("text/plain")
+	public void addPlayerToRoom(@PathParam("id") Integer room_id, String userId) {
+		System.out.println("HAHAHH USER ID " + userId);
 	}
 	
 	@POST
