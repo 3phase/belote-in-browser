@@ -29,7 +29,8 @@ $(document).ready(function() {
 			contentType: "application/json; charset=UTF-8",
 			success: function(result) {
 				var playerId = result; 
-				console.log("Success Haha " + result);
+				$(".play-options").html("");
+				$(".play-options").html("Your ID is " + playerId + ". You can <a href=\"initial_room.html\">join a room</a> now...");
 			},
 			error: function(xhr, status, error) {
 				console.log("Problem " + JSON.stringify(xhr) + "; " + status + "; " + error);

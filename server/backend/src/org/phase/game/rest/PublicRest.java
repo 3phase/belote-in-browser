@@ -107,7 +107,7 @@ public class PublicRest {
 	@Produces("text/plain")
 	public Integer createPlayer(Player player) {
 		this.beloteInBrowser.addPlayerToList(player);
-		return 1;
+		return (this.beloteInBrowser.allPlayers.size() - 1);
 	}
 	
 	// TODO: addPlayerToTeam	
