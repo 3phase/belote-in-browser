@@ -44,27 +44,44 @@ $(document).ready(function() {
 
 	}
 	
-	function sendCardsToServer(key) {
-		var data = players[key];
-		var playerId = Cookies.get("user-token");
-//		var url = "http://127.0.0.1:8080/05_SampleBackend/rest/play/room/" + roomId + "/team/" + ??? + "/player/" + playerId + "/add_cards";
+	function turnCardsIntoJSONObject(key) {
 		
-		$.ajax({
-			type: "POST",
-			url: url,
-			beforeSend: function(xhr) {
-				xhr.setRequestHeader("accept", "text/plain");
-				xhr.setRequestHeader("Content-Type", "application/json");
-			},
-			data: JSON.stringify(data),
-			contentType: "application/json; charset=UTF-8",
-			success: function(result) {
-				console.log("Success " + result);
-			},
-			error: function(xhr, status, error) {
-				console.log("Problem " + JSON.stringify(xhr) + "; " + status + "; " + error);
-			}
+//		console.log("Cards " + players[key]);
+		$.each(players[key], function(key, val) {
+			console.log("Key " + key + " => Val " + val);
 		});
+//		$.each(players[key], function(key, val) {
+//			var cardMeta = {
+//				"owner": Cookies.get("user-token"),
+//				"type": $(val).attr("data-card-type"),
+//				"mark": $(val).attr("data-card")
+//			}
+//			cardsOnTable.push(cardMeta);
+//		});
+	}
+	
+	function sendCardsToServer(key) {
+		var playerId = Cookies.get("user-token");
+		var teamId = Cookies.get("team-token");
+		var url = "http://127.0.0.1:8080/05_SampleBackend/rest/play/room/" + roomId + "/team/" + teamId + "/player/" + playerId + "/add_cards";
+		
+		turnCardsIntoJSONObject(key);
+		
+//		$.ajax({
+//			type: "PUT",
+//			url: url,
+//			beforeSend: function(xhr) {
+//				xhr.setRequestHeader("Content-Type", "application/json");
+//			},
+//			data: JSON.stringify(data),
+//			contentType: "application/json; charset=UTF-8",
+//			success: function(result) {
+//				console.log("Success " + result);
+//			},
+//			error: function(xhr, status, error) {
+//				console.log("Problem " + JSON.stringify(xhr) + "; " + status + "; " + error);
+//			}
+//		});
 	}
 	
 	function check_if_combination_within_cards(player_key) {
@@ -104,7 +121,7 @@ $(document).ready(function() {
 				players[key].push(card);
 			}
 			if (count == 3) {
-//				sendCardsToServer(key);
+				sendCardsToServer(key);
 				check_if_combination_within_cards(key);
 			}
 		});

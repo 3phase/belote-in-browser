@@ -10,6 +10,7 @@ public class Game {
 	private int team_two_result;
 	private Team announcing_team;
 	private Team[] teams;
+	private List<Player> players;
 	public Table table = new Table();
 	
 	public Game() {

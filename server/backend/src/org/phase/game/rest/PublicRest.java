@@ -106,15 +106,6 @@ public class PublicRest {
 		return true;
 	}
 	
-	@GET
-	@Path("/room/{id}/common-desk")
-	@Produces("text/plain")
-	public List<Card> test(@PathParam("id") Integer id) {
-		List<Card> listOfCards = new ArrayList<Card>();
-		
-		return(listOfCards);
-	}
-	
 	@PUT
 	@Path("/room/{room_id}/team/{team_id}/player/{player_id}/add_cards")
 	@Consumes({MediaType.APPLICATION_JSON})
