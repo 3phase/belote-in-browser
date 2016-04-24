@@ -3,6 +3,35 @@ $(document).ready(function() {
 	
 	var roomId = -1;
 	
+	function joinExistingRoom(roomId) {
+		var userId = Cookies.get("user-token");
+		var actionField = $(".play-options");
+		
+		if (Cookies.get("room-token") != undefined) {
+			return false;
+		}
+		
+		var url = "http://127.0.0.1:8080/05_SampleBackend/rest/play/room/" + roomId + "/add-player";
+		$.ajax({
+			type: "PUT",
+			url: url,
+			beforeSend: function(xhr) {
+				xhr.setRequestHeader("Content-Type", "text/plain");
+			},
+			data: userId.toString(),
+			contentType: "text/plain; charset=UTF-8",
+			success: function(result) {
+				actionField.html("");
+				actionField.html("You have successfully joined room " + roomId + "!");
+			},
+			error: function(xhr, status, error) {
+				console.log("Problem " + JSON.stringify(xhr) + "; " + status + "; " + error);
+				$(document).html("Error 5xx - A problem occurred. Cannot continue.");
+				return false;
+			}
+		});
+	}
+	
 	function addUserToRoom() {
 		var userId = Cookies.get("user-token");
 		var url = "http://127.0.0.1:8080/05_SampleBackend/rest/play/room/" + roomId + "/add-player/";
@@ -133,6 +162,13 @@ $(document).ready(function() {
 		actionField.html("You must <a href=\"index.html\">set your user credientials</a> first.");
 		return false;
 	}
+	
+	if (Cookies.get("room-token") != undefined) {
+		$(".play-options").html("");
+		$(".play-options").html("You cannot choose between any rooms until you are supposed to be in a game.");
+		return false;
+	}
+	
 	$(".playOpt.create-room").on("click", createRoom);
 	$(".playOpt.join-room").on("click", joinRoom);
 	$(".playOpt.see-available").on("click", function() {
@@ -140,7 +176,7 @@ $(document).ready(function() {
 	});
 	
 	$(".play-options").on("click", "div.room", function() {
-		console.log($(this).attr("id"));
+		joinExistingRoom($(this).attr("id"));
 	});
 	
 });
