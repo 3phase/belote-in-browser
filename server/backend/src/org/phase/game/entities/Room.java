@@ -29,7 +29,7 @@ public class Room {
 		for (Team team : teams) {
 			if (team.if_ready() != 1) {
 				try {
-					team.new_player(player);
+					team.new_player(player, team);
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

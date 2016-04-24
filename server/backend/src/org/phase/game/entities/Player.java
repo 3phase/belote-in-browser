@@ -10,7 +10,7 @@ public class Player {
 
 	private long playerId;
 	private String playerNickname;
-	private Team team;
+	private long team;
 	private List<Card> cards = new ArrayList<Card>();
 	
 	public Player() {
@@ -33,12 +33,12 @@ public class Player {
 		this.playerNickname = playerNickname;
 	}
 	
-	public Team getTeam() {
+	public long getTeam() {
 		return team;
 	}
 	
-	public void setTeam(Team team) {
-		this.team = team;
+	public void setTeam(long teamId) {
+		this.team = teamId;
 	}
 	
 	public List<Card> getCards() {
