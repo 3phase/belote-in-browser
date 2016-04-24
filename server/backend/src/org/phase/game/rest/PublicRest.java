@@ -78,6 +78,13 @@ public class PublicRest {
 		this.beloteInBrowser.addPlayerToRoomById(room, playerId);
 	}
 	
+	@GET
+	@Path("/room/{id}/t/1/get-players")
+	@Produces({MediaType.APPLICATION_JSON})
+	public List<Player> getAllUsers(@PathParam("id") Integer rId) {
+		return this.beloteInBrowser.rooms.get(rId).getTeams().getPlayers();
+	}
+	
 	@POST
 	@Consumes({MediaType.APPLICATION_JSON})
 	@Produces({MediaType.APPLICATION_JSON})

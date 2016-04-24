@@ -40,4 +40,8 @@ public class Team {
 		return players.get(player_id);
 	}
 	
+	public List<Player> getPlayers() {
+		return players;
+	}
+	
 }
