@@ -23,6 +23,7 @@ $(document).ready(function() {
 			success: function(result) {
 				actionField.html("");
 				actionField.html("You have successfully joined room " + roomId + "!");
+				Cookies.set("room-token", roomId, {path: "game.html"});
 			},
 			error: function(xhr, status, error) {
 				console.log("Problem " + JSON.stringify(xhr) + "; " + status + "; " + error);
@@ -165,7 +166,7 @@ $(document).ready(function() {
 	
 	if (Cookies.get("room-token") != undefined) {
 		$(".play-options").html("");
-		$(".play-options").html("You cannot choose between any rooms until you are supposed to be in a game.");
+		$(".play-options").html("You cannot choose between any rooms while you are supposed to be in a game.");
 		return false;
 	}
 	
