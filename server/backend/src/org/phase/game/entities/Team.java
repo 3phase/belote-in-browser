@@ -49,7 +49,12 @@ public class Team {
 		this.teamId = teamId; 
 	}
 	
-	public boolean checkIfContains() {
+	public boolean checkIfContains(long playerId) {
+		for (Player player : players) {
+			if (player.getPlayerId() == playerId) {
+				return true;
+			}
+		}
 		return false;
 	}
 	

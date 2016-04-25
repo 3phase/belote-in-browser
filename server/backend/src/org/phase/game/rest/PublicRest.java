@@ -127,12 +127,14 @@ public class PublicRest {
 	@GET
 	@Path("/room/{roomId}/player/{playerId}/get-team")
 	@Produces("text/plain")
-	public Integer getTeam(@PathParam("roomId") Integer roomId, 
+	public long getTeam(@PathParam("roomId") Integer roomId, 
 			@PathParam("playerId") long playerId) {
 		for (Team team : this.beloteInBrowser.rooms.get(roomId).getAllTeams()) {
-			
+			if (team.checkIfContains(playerId)) {
+				return team.get_team_id();
+			}
 		}
-		return null;
+		return -1;
 	}
 	
 	@POST

@@ -44,10 +44,10 @@ $(document).ready(function() {
 
 	}
 	
-	function send_cards_to_server(key) {
+	function sendCardsToServer(key) {
 		var data = players[key];
 		var playerId = Cookies.get("user-token");
-		var url = "http://127.0.0.1:8080/05_SampleBackend/rest/play/room/" + roomId + "/team/" + ??? + "/player/" + playerId + "/add_cards";
+//		var url = "http://127.0.0.1:8080/05_SampleBackend/rest/play/room/" + roomId + "/team/" + ??? + "/player/" + playerId + "/add_cards";
 		
 		$.ajax({
 			type: "POST",
@@ -59,7 +59,7 @@ $(document).ready(function() {
 			data: JSON.stringify(data),
 			contentType: "application/json; charset=UTF-8",
 			success: function(result) {
-				console.log("Success " + result));
+				console.log("Success " + result);
 			},
 			error: function(xhr, status, error) {
 				console.log("Problem " + JSON.stringify(xhr) + "; " + status + "; " + error);
@@ -104,7 +104,7 @@ $(document).ready(function() {
 				players[key].push(card);
 			}
 			if (count == 3) {
-				send_cards_to_server(key);
+//				sendCardsToServer(key);
 				check_if_combination_within_cards(key);
 			}
 		});

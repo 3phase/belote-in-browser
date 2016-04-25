@@ -3,8 +3,9 @@ $(document).ready(function() {
 	
 	var roomId = -1;
 	
-	function resetUserCookie() {
+	function setTeamCookie() {
 		var playerId = Cookies.get("user-token");
+		
 		$.ajax({
 			type: "GET",
 			url: "http://127.0.0.1:8080/05_SampleBackend/rest/play/room/" + roomId + "/player/" + playerId + "/get-team",
@@ -13,8 +14,7 @@ $(document).ready(function() {
 			},
 			success: function(result) {
 				var teamId = result;
-				Cookies.set("user-token", [playerId, teamId], {path: "/"});
-				resetUserCookie();
+				Cookies.set("team-token", teamId, {path: "/"});
 			},
 			error: function(xhr, status, error) {
 				actionField.append("Problem while creating room. " + JSON.stringify(xhr) + "; " + status + "; " + error);
@@ -43,7 +43,7 @@ $(document).ready(function() {
 				actionField.html("");
 				actionField.html("You have successfully joined room " + roomId + "!");
 				Cookies.set("room-token", roomId, {path: "game.html"});
-				resetUserCookie();
+				setTeamCookie();
 			},
 			error: function(xhr, status, error) {
 				console.log("Problem " + JSON.stringify(xhr) + "; " + status + "; " + error);
@@ -94,7 +94,7 @@ $(document).ready(function() {
 					Cookies.remove("room-token");
 				}
 				Cookies.set("room-token", roomId, {path: "game.html"});
-				resetUserCookie();
+				setTeamCookie();
 			},
 			error: function(xhr, status, error) {
 				actionField.append("Problem while creating room. " + JSON.stringify(xhr) + "; " + status + "; " + error);
