@@ -12,12 +12,12 @@ public class Team {
 	private int ready = 0;
 	private Deque<Card> won_cards = new ArrayDeque<Card>();
 	
-	public void new_player(Player player, Team team) throws Exception {
+	public void new_player(Player player) throws Exception {
 		if (players.size() < 2) {
-			player.setTeam(team.get_team_id());
+			player.setTeam(teamId);
 			players.add(player);
 			if (players.size() == 2) {
-				ready = 1;
+				this.ready = 1;
 			}
 		} else {
 			throw new Exception("Player cannot be added to this team since "
@@ -43,6 +43,10 @@ public class Team {
 	
 	public List<Player> getPlayers() {
 		return players;
+	}
+	
+	public void setTeamId(long teamId) {
+		this.teamId = teamId; 
 	}
 	
 }

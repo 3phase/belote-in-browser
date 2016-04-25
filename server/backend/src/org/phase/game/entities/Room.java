@@ -19,7 +19,9 @@ public class Room {
 	private void createTeams() {
 		if (teams.isEmpty()) {
 			Team teamOne = new Team();
+			teamOne.setTeamId(1);
 			Team teamTwo = new Team();
+			teamTwo.setTeamId(2);
 			teams.add(teamOne);
 			teams.add(teamTwo);
 		}		
@@ -29,12 +31,14 @@ public class Room {
 		for (Team team : teams) {
 			if (team.if_ready() != 1) {
 				try {
-					team.new_player(player, team);
+					team.new_player(player);
+					return;
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
+			continue;
 		}
 	}
 
@@ -42,8 +46,8 @@ public class Room {
 		return this.roomId;
 	}
 	
-	public Team getTeams() {
-		return teams.get(0);
+	public Team getTeams(Integer teamId) {
+		return teams.get(teamId);
 	}
 	
 	public int get_status() {

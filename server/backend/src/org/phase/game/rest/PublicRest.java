@@ -79,10 +79,10 @@ public class PublicRest {
 	}
 	
 	@GET
-	@Path("/room/{id}/t/1/get-players")
+	@Path("/room/{id}/t/{tId}/get-players")
 	@Produces({MediaType.APPLICATION_JSON})
-	public List<Player> getAllUsers(@PathParam("id") Integer rId) {
-		return this.beloteInBrowser.rooms.get(rId).getTeams().getPlayers();
+	public List<Player> getAllUsers(@PathParam("id") Integer rId, @PathParam("tId") Integer teamId) {
+		return this.beloteInBrowser.rooms.get(rId).getTeams(teamId).getPlayers();
 	}
 	
 	@POST
