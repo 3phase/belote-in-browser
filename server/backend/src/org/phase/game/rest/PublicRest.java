@@ -116,12 +116,23 @@ public class PublicRest {
 	}
 	
 	@PUT
-	@Path("/room/{room_id}/t/{team_id}/player/{player_id}/add_cards")
+	@Path("/room/{room_id}/team/{team_id}/player/{player_id}/add_cards")
 	@Consumes({MediaType.APPLICATION_JSON})
 	public void addCardsToPlayer(@PathParam("room_id") Integer room_id,
 			@PathParam("team_id") Integer team_id,
 			@PathParam("player_id") Integer player_id, List<Card> cards) {
 		beloteInBrowser.getRoomGame(room_id).getPlayerById(team_id, player_id);
+	}
+	
+	@GET
+	@Path("/room/{roomId}/player/{playerId}/get-team")
+	@Produces("text/plain")
+	public Integer getTeam(@PathParam("roomId") Integer roomId, 
+			@PathParam("playerId") long playerId) {
+		for (Team team : this.beloteInBrowser.rooms.get(roomId).getAllTeams()) {
+			
+		}
+		return null;
 	}
 	
 	@POST

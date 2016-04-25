@@ -58,4 +58,8 @@ public class Room {
 		return this.game;
 	}
 	
+	public List<Team> getAllTeams() {
+		return this.teams;
+	}
+	
 }

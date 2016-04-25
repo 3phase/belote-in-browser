@@ -49,4 +49,8 @@ public class Team {
 		this.teamId = teamId; 
 	}
 	
+	public boolean checkIfContains() {
+		return false;
+	}
+	
 }

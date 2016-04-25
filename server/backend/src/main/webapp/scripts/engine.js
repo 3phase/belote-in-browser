@@ -44,6 +44,29 @@ $(document).ready(function() {
 
 	}
 	
+	function send_cards_to_server(key) {
+		var data = players[key];
+		var playerId = Cookies.get("user-token");
+		var url = "http://127.0.0.1:8080/05_SampleBackend/rest/play/room/" + roomId + "/team/" + ??? + "/player/" + playerId + "/add_cards";
+		
+		$.ajax({
+			type: "POST",
+			url: url,
+			beforeSend: function(xhr) {
+				xhr.setRequestHeader("accept", "text/plain");
+				xhr.setRequestHeader("Content-Type", "application/json");
+			},
+			data: JSON.stringify(data),
+			contentType: "application/json; charset=UTF-8",
+			success: function(result) {
+				console.log("Success " + result));
+			},
+			error: function(xhr, status, error) {
+				console.log("Problem " + JSON.stringify(xhr) + "; " + status + "; " + error);
+			}
+		});
+	}
+	
 	function check_if_combination_within_cards(player_key) {
 		// TODO: Send request to server to check player cards for a combination (tierce, quart etc.)
 		
@@ -81,6 +104,7 @@ $(document).ready(function() {
 				players[key].push(card);
 			}
 			if (count == 3) {
+				send_cards_to_server(key);
 				check_if_combination_within_cards(key);
 			}
 		});
