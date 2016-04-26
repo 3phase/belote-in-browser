@@ -35,6 +35,7 @@ public class Room {
 		if ((teams.get(0).if_ready() == 1) && (teams.get(1).if_ready() == 1)) {
 			// Game ready to begin
 			this.addTeamsToGame();
+			this.game.startGame();
 			status = 1;
 			return;
 		}

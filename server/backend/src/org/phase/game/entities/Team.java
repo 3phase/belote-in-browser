@@ -16,10 +16,8 @@ public class Team {
 		if (players.size() < 2) {
 			player.setTeam(teamId);
 			players.add(player);
-			System.out.println("PLAYER " + players.size() + " WAS ADDED ");
 			if (players.size() == 2) {
 				ready = 1;
-				System.out.println("Ready ought change");
 			}
 		} else {
 			throw new Exception("Player cannot be added to this team since "
