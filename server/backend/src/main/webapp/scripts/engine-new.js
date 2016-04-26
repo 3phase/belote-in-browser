@@ -7,8 +7,23 @@ $(document).ready(function() {
 	var userId = -1;
 	var canvasDefault = $(".game-container").clone();
 	
+	function requestCards() {
+		$.ajax({
+			type: "GET",
+			url: "http://127.0.0.1:8080/05_SampleBackend/rest/play/room/" + Cookies.get("room-token") + "/t/" + Cookies.get("team-token") + "/player/" + Cookies.get("user-token") + "/get-cards",
+			beforeSend: function(xhr) {
+				xhr.setRequestHeader("accept", "application/json");
+			},
+			success: function(result) {
+				console.log(JSON.stringify($(result)));
+			},
+			error: function(xhr, status, error) {
+				console.log("Problem while creating room. " + JSON.stringify(xhr) + "; " + status + "; " + error);
+			}
+		});
+	}
+	
 	function checkIfRoomDone() {
-		console.log("Debuging");
 		$.ajax({
 			type: "GET",
 			url: "http://127.0.0.1:8080/05_SampleBackend/rest/play/room/" + Cookies.get("room-token") + "/is-available",
@@ -16,11 +31,11 @@ $(document).ready(function() {
 				xhr.setRequestHeader("accept", "text/plain");
 			},
 			success: function(result) {
-				console.log("Result mothafucka " + result);
 				if (result == 1) { 
 					roomStatus = true;
 					/*clearInterval(interval);*/
 					$(".game-container").replaceWith(canvasDefault);
+					requestCards();
 				}
 			},
 			error: function(xhr, status, error) {
