@@ -31,11 +31,21 @@ public class Room {
 		this.game.updateTeams(teams);
 	}
 	
+	private void prooveStatusNotToChange() {
+		if ((teams.get(0).if_ready() == 1) && (teams.get(1).if_ready() == 1)) {
+			// Game ready to begin
+			this.addTeamsToGame();
+			status = 1;
+			return;
+		}
+	}
+	
 	public void addPlayer(Player player) {
 		for (Team team : teams) {
 			if (team.if_ready() != 1) {
 				try {
 					team.new_player(player);
+					prooveStatusNotToChange();
 					return;
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
@@ -44,11 +54,7 @@ public class Room {
 			}
 			continue;
 		}
-		if (teams.get(0).if_ready() == 1 && teams.get(1).if_ready() == 1) {
-			// Game ready to begin
-			this.addTeamsToGame();
-			status = 1;
-		}
+//		System.out.println("player if ready " + teams.get(0).if_ready());
 	}
 
 	public long get_id() {

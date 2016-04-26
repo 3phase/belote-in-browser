@@ -9,15 +9,17 @@ public class Team {
 
 	private long teamId;
 	private List<Player> players = new ArrayList<Player>();
-	private int ready = 0;
+	private Integer ready = 0;
 	private Deque<Card> won_cards = new ArrayDeque<Card>();
 	
 	public void new_player(Player player) throws Exception {
 		if (players.size() < 2) {
 			player.setTeam(teamId);
 			players.add(player);
+			System.out.println("PLAYER " + players.size() + " WAS ADDED ");
 			if (players.size() == 2) {
-				this.ready = 1;
+				ready = 1;
+				System.out.println("Ready ought change");
 			}
 		} else {
 			throw new Exception("Player cannot be added to this team since "
@@ -29,7 +31,7 @@ public class Team {
 		return teamId;
 	}
 	
-	public int if_ready() {
+	public Integer if_ready() {
 		return ready;
 	}
 	

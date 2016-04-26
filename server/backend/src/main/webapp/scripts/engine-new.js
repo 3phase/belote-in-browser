@@ -39,9 +39,6 @@ $(document).ready(function() {
 	roomId = Cookies.get("room-token");
 	userId = Cookies.get("user-token");
 	
-	console.log("ROOOOOOM ID " + roomId);
-	console.log("DEBUG " + "http://127.0.0.1:8080/05_SampleBackend/rest/play/room/" + roomId + "/is-available");
-	
 	if (roomStatus == false) {
 		$(".game-container").html("");
 		$(".game-container").html("Waiting for the required amount of players to gather...");
