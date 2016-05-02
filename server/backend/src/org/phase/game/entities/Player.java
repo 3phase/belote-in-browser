@@ -59,7 +59,11 @@ public class Player {
 	}
 	
 	public void removeCard(Card card) {
-		cards.remove(card);
+		if (cards.remove(card)) {
+			System.out.println("SUcceessss");
+		} else {
+			System.out.println("FAilure");
+		}
 	}
 
 }

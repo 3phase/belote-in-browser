@@ -13,9 +13,9 @@ public class Game {
 	private Team announcing_team;
 	private List<Team> teams = new ArrayList<Team>();
 	private List<Card> cards = new ArrayList<Card>();
-	private List<Card> cardsOnDesk = new ArrayList<Card>();
 	private Integer playerTurn = 0;
 	public Table table = new Table();
+	public List<Card> cardsOnDesk = new ArrayList<Card>();
 	
 	public Game() {
 		createCards();
@@ -86,6 +86,10 @@ public class Game {
 		return cardsOnDesk;
 	}
 	
+	public Integer getPlayerTurn() {
+		return playerTurn;
+	}
+	
 	public Integer showHowManyCardsOnDesk() {
 		return cardsOnDesk.size();
 	}
@@ -108,6 +112,7 @@ public class Game {
 		playerTurn++;
 		return playerTurn;
 	}
+	
 	
 /*	public Player getPlayerById(Integer team_id, Integer player_id) {
 		Team wanted_team = teams[team_id];

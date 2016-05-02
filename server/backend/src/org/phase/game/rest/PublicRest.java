@@ -190,7 +190,29 @@ public class PublicRest {
 		// TODO: Fix static UID incrementation since it's not suitable for many users 		
 		this.beloteInBrowser.rooms.get(roomId).getAllTeams().get(teamId).getPlayerById(userId).removeCard(cardToRemove);
 		this.beloteInBrowser.rooms.get(roomId).get_game().addCardToDesk(cardToRemove);
-		return this.beloteInBrowser.rooms.get(roomId).get_game().incrementPlayerTurn(userId);
+		return this.beloteInBrowser.rooms.get(roomId).get_game().cardsOnDesk.size();
+//		return this.beloteInBrowser.rooms.get(roomId).get_game().incrementPlayerTurn(userId);
+	}
+	
+	@GET
+	@Path("/room/{roomId}/next-turn")
+	@Produces("text/plain")
+	public Integer getNextTurn(@PathParam("roomId") Integer roomId) {
+		return this.beloteInBrowser.rooms.get(roomId).get_game().getPlayerTurn();
+	}
+	
+	@GET
+	@Path("/room/{roomId}/common-desk-size")
+	@Produces("text/plain")
+	public Integer getCommonDeskSize(@PathParam("roomId") Integer roomId) {
+		return this.beloteInBrowser.rooms.get(roomId).get_game().cardsOnDesk.size();
+	}
+	
+	@GET
+	@Path("/room/{roomId}/common-desk")
+	@Produces({MediaType.APPLICATION_JSON})
+	public List<Card> getCommonDeskContents(@PathParam("roomId") Integer roomId) {
+		return this.beloteInBrowser.rooms.get(roomId).get_game().cardsOnDesk;
 	}
 	
 }
