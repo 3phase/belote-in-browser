@@ -13,6 +13,7 @@ public class Game {
 	private Team announcing_team;
 	private List<Team> teams = new ArrayList<Team>();
 	private List<Card> cards = new ArrayList<Card>();
+	private List<Card> cardsOnDesk = new ArrayList<Card>();
 	public Table table = new Table();
 	
 	public Game() {
@@ -49,6 +50,13 @@ public class Game {
 		}
 	}
 	
+	private void evaluateCards() {
+		// Currently cards are perceived as all-trumps		
+		System.out.println("Will evaluate");
+		team_one_result = 12;
+		team_two_result = 10;
+	}
+	
 	public long get_announce() {
 		return announce;
 	}
@@ -66,8 +74,30 @@ public class Game {
 		distributeCards();
 	}
 	
-//	When the last person requests to join in, the server should show first 5 cards of each user;
-//	After that, input should be taken and so is the color determined
+	public List<Integer> getResult() {
+		List<Integer> result = new ArrayList<Integer>();
+		result.add(team_one_result);
+		result.add(team_two_result);
+		return result; 
+	}
+	
+	public List<Card> getCardsOnDesk() {
+		return cardsOnDesk;
+	}
+	
+	public Integer showHowManyCardsOnDesk() {
+		return cardsOnDesk.size();
+	}
+	
+	public void addCardToDesk(Card card) {
+		if (cardsOnDesk.size() <= 4) {
+			cardsOnDesk.add(card);
+		} else {
+			evaluateCards();
+			cardsOnDesk.clear();
+		}
+	}
+	
 	
 /*	public Player getPlayerById(Integer team_id, Integer player_id) {
 		Team wanted_team = teams[team_id];

@@ -57,5 +57,9 @@ public class Player {
 	public String getPlayerPosition() {
 		return this.playerPosition;
 	}
+	
+	public void removeCard(Card card) {
+		cards.remove(card);
+	}
 
 }

@@ -7,8 +7,33 @@ $(document).ready(function() {
 	var userId = -1;
 	var canvasDefault = $(".game-container").clone();
 	
+	function serverCardChange(mark, type, owner) {
+		var teamId = Cookies.get("team-token") - 1;
+		var url = "http://127.0.0.1:8080/05_SampleBackend/rest/play/room/" + Cookies.get("room-token") + "/t/" + teamId + "/player/" + Cookies.get("user-token") + "/play-card";
+		$.ajax({
+			type: "POST",
+			url: url,
+			beforeSend: function(xhr) {
+				xhr.setRequestHeader("accept", "text/plain");
+				xhr.setRequestHeader("Content-Type", "application/json");
+			},
+			data: JSON.stringify(player),
+			contentType: "application/json; charset=UTF-8",
+			success: function(result) {
+				var playerId = result; 
+				setLoggedUserCookie(playerId);
+				$(".play-options").html("");
+				$(".play-options").html("Your ID is " + playerId + ". You can <a href=\"initial_room.html\">join a room</a> now...");
+			},
+			error: function(xhr, status, error) {
+				console.log("Problem " + JSON.stringify(xhr) + "; " + status + "; " + error);
+			}
+		});
+	}
+	
 	function addCardToCommonTable(mark, type, owner, cardItself) {
 		var commonDesk = $(".common-card-holder");
+		serverCardChange(mark, type, owner);
 		$(cardItself).remove();
 		commonDesk.append("<button class=\"card\" data-card-type=\"" + type + "\" " +
 					"data-card-mark=\"" + mark + "\" data-card-owner=\"" +

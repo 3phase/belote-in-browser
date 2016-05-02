@@ -182,4 +182,14 @@ public class PublicRest {
 		return this.beloteInBrowser.rooms.get(roomId).getAllTeams().get(teamId).getPlayerById(userId).getPlayerPosition();
 	}
 	
+	@POST
+	@Path("/room/{roomId}/t/{teamId}/player/{userId}/play-card")
+	@Produces({MediaType.APPLICATION_JSON})
+	public List<Integer> playCard(@PathParam("roomId") Integer roomId, @PathParam("teamId") Integer teamId,
+			@PathParam("userId") Integer userId, Card cardToRemove) {
+		this.beloteInBrowser.rooms.get(roomId).getAllTeams().get(teamId).getPlayerById(userId).removeCard(cardToRemove);
+		this.beloteInBrowser.rooms.get(roomId).get_game().addCardToDesk(cardToRemove);
+		return this.beloteInBrowser.rooms.get(roomId).get_game().getResult();
+	}
+	
 }
