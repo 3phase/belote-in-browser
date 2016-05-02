@@ -14,6 +14,7 @@ public class Game {
 	private List<Team> teams = new ArrayList<Team>();
 	private List<Card> cards = new ArrayList<Card>();
 	private List<Card> cardsOnDesk = new ArrayList<Card>();
+	private Integer playerTurn = 0;
 	public Table table = new Table();
 	
 	public Game() {
@@ -98,6 +99,15 @@ public class Game {
 		}
 	}
 	
+	public Integer incrementPlayerTurn(Integer playerId) {
+		// TODO: Make it increment within users in current game	
+		playerTurn = playerId;
+		if (playerTurn == 3) {
+			playerTurn = 0;
+		}
+		playerTurn++;
+		return playerTurn;
+	}
 	
 /*	public Player getPlayerById(Integer team_id, Integer player_id) {
 		Team wanted_team = teams[team_id];

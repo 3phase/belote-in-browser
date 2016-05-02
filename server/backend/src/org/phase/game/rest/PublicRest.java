@@ -184,12 +184,13 @@ public class PublicRest {
 	
 	@POST
 	@Path("/room/{roomId}/t/{teamId}/player/{userId}/play-card")
-	@Produces({MediaType.APPLICATION_JSON})
-	public List<Integer> playCard(@PathParam("roomId") Integer roomId, @PathParam("teamId") Integer teamId,
+	@Produces("text/plain")
+	public Integer playCard(@PathParam("roomId") Integer roomId, @PathParam("teamId") Integer teamId,
 			@PathParam("userId") Integer userId, Card cardToRemove) {
+		// TODO: Fix static UID incrementation since it's not suitable for many users 		
 		this.beloteInBrowser.rooms.get(roomId).getAllTeams().get(teamId).getPlayerById(userId).removeCard(cardToRemove);
 		this.beloteInBrowser.rooms.get(roomId).get_game().addCardToDesk(cardToRemove);
-		return this.beloteInBrowser.rooms.get(roomId).get_game().getResult();
+		return this.beloteInBrowser.rooms.get(roomId).get_game().incrementPlayerTurn(userId);
 	}
 	
 }

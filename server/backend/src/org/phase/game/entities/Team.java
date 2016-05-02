@@ -67,4 +67,13 @@ public class Team {
 		return null;
 	}
 	
+	public Player getPlayerByPosition(String position) {
+		for (Player player : players) {
+			if (player.getPlayerPosition() == position) {
+				return player;
+			}
+		}
+		return null;
+	}
+	
 }
