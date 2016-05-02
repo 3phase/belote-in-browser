@@ -58,4 +58,13 @@ public class Team {
 		return false;
 	}
 	
+	public Player getPlayerById(Integer playerId) {
+		for (Player player : players) {
+			if (player.getPlayerId() == playerId) {
+				return player;
+			}
+		}
+		return null;
+	}
+	
 }

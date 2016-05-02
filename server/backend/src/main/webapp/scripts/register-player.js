@@ -21,7 +21,8 @@ $(document).ready(function() {
 			"playerId" : -1,
 			"playerNickname" : playerNickname, 
 			"team" : null,
-			"cards" : null
+			"cards" : null,
+			"playerPosition" : null
 		};
 		
 		var url = "http://127.0.0.1:8080/05_SampleBackend/rest/play/player/create";

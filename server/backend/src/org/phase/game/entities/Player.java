@@ -12,6 +12,7 @@ public class Player {
 	private String playerNickname;
 	private long team;
 	private List<Card> cards = new ArrayList<Card>();
+	private String playerPosition;
 	
 	public Player() {
 		
@@ -47,6 +48,14 @@ public class Player {
 	
 	public void setCards(List<Card> cards) {
 		this.cards = cards;
+	}
+	
+	public void setPlayerPosition(String playerPosition) {
+		this.playerPosition = playerPosition;
+	}
+	
+	public String getPlayerPosition() {
+		return this.playerPosition;
 	}
 
 }

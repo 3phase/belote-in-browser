@@ -72,9 +72,20 @@ public class PublicRest {
 	@Path("/room/{id}/add-player")
 	@Consumes({MediaType.APPLICATION_JSON})
 	public void addPlayerToRoom(@PathParam("id") Integer roomId, Player player) {
-		Room room = this.beloteInBrowser.rooms.get(roomId);
 		try {
 			this.beloteInBrowser.addPlayerToRoom(roomId, player);
+			long teamId = this.beloteInBrowser.rooms.get(roomId).getPlayersTeam(player);
+			int realTeamId = ((int) teamId) - 1;
+			int teamSize = this.beloteInBrowser.rooms.get(roomId).getTeams(realTeamId).getPlayers().size();
+			if (teamId == 1) {
+				// North only since south is given when the room is created
+				player.setPlayerPosition("north");
+			} else if (teamId == 2) {
+				// East and west
+				if (teamSize == 1) {
+					player.setPlayerPosition("east");
+				} else { player.setPlayerPosition("west"); } 
+			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -85,10 +96,12 @@ public class PublicRest {
 	@Path("/room/{id}/add-player/id")
 	@Consumes("text/plain")
 	public void addPlayerToRoomById(@PathParam("id") Integer roomId, String userId) {
+		// Only used when new room		
 		long playerId = Long.parseLong(userId);
 		System.out.println("PUT Request UID " + playerId);
 		Room room = this.beloteInBrowser.rooms.get(roomId);
 		this.beloteInBrowser.addPlayerToRoomById(room, playerId);
+		room.getAllTeams().get(0).get_player((int) playerId).setPlayerPosition("south");
 	}
 	
 	@GET
@@ -158,9 +171,15 @@ public class PublicRest {
 	@Produces({MediaType.APPLICATION_JSON})
 	public List<Card> getUserCards(@PathParam("roomId") Integer roomId, 
 			@PathParam("teamId") Integer teamId, @PathParam("userId") Integer userId) {
-		return this.beloteInBrowser.rooms.get(roomId).getAllTeams().get(teamId).getPlayers().get(userId).getCards();
+		return this.beloteInBrowser.rooms.get(roomId).getAllTeams().get(teamId).getPlayerById(userId).getCards();
 	}
 	
-	// TODO: addPlayerToTeam	
+	@GET
+	@Path("/room/{roomId}/t/{teamId}/player/{userId}/get-position")
+	@Produces("text/plain")
+	public String getPlayerPosition(@PathParam("roomId") Integer roomId,
+			@PathParam("teamId") Integer teamId, @PathParam("userId") Integer userId) {
+		return this.beloteInBrowser.rooms.get(roomId).getAllTeams().get(teamId).getPlayerById(userId).getPlayerPosition();
+	}
 	
 }

@@ -78,4 +78,13 @@ public class Room {
 		return this.teams;
 	}
 	
+	public long getPlayersTeam (Player player) {
+		for (Team team : teams) {
+			if (team.checkIfContains(player.getPlayerId())) {
+				return team.get_team_id();
+			}
+		}
+		return -5;
+	}
+	
 }

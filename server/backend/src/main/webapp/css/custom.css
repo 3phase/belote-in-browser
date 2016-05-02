@@ -79,3 +79,7 @@ div.room {
 div.inputs {
 	margin: 30px;
 }
+
+div.card-holder[hahaha="HAHAHAHA"] {
+	background-color: #FF0000;
+}

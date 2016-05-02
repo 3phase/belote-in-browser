@@ -5,6 +5,10 @@ $(document).ready(function() {
 	
 	function setTeamCookie() {
 		var playerId = Cookies.get("user-token");
+		var roomid = Cookies.get("room-token");
+		
+		console.log("http://127.0.0.1:8080/05_SampleBackend/rest/play/room/" + Cookies.get("room-token") + 
+				"/player/" + playerId + "/get-team");
 		
 		$.ajax({
 			type: "GET",
@@ -61,6 +65,7 @@ $(document).ready(function() {
 	}
 	
 	function addUserToRoom() {
+		// Only used when new room		
 		var userId = Cookies.get("user-token");
 		var url = "http://127.0.0.1:8080/05_SampleBackend/rest/play/room/" + roomId + "/add-player/id";
 		$.ajax({
