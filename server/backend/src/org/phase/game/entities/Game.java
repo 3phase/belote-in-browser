@@ -37,7 +37,7 @@ public class Game {
 		for (Team team : teams) {
 			for (Player player : team.getPlayers()) {
 				List<Card> cardsForPlayer = new ArrayList<Card>();
-				for (int i = 0; i <= 4; i++) {
+				for (int i = 0; i <= 7; i++) {
 					int  n = rand.nextInt(cards.size());
 					Card cardToAdd = cards.get(n);
 					cardToAdd.setOwner(player.getPlayerId());

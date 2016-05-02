@@ -37,7 +37,7 @@ button:disabled {
 .card-holder.east { border-left: 1px solid; }
 .card-holder.west { border-right: 1px solid; }
 
-.announce-bar p.page-desc{
+p.page-desc{
 	font-family: 'Niconne', cursive;
 	font-size: 2.4em;
 	color: #4C4C4C;
@@ -80,6 +80,36 @@ div.inputs {
 	margin: 30px;
 }
 
-div.card-holder[hahaha="HAHAHAHA"] {
-	background-color: #FF0000;
+div.dialog {
+	width: 600px;
+	min-height: 140px;
+	border: 1px solid #BBB;
+	background-color: #F0F0F0;
+}
+.dialog .title-bar {
+	width: 100%;
+	margin: 0;
+	overflow: hidden;
+	border-bottom: 1px solid #BBB;
+	background-color: #FFF;
+}
+
+.dialog .color {
+	width: 15%;
+	height: 50px;
+	float: left;
+	border: 1px solid #AAA;
+	background: #FFF;
+	margin: 8px 8px 0 0;
+	line-height: 50px;
+	cursor: pointer;
+}
+
+.dialog .color.clubs {
+	margin-left: 10px;
+}
+
+.dialog .color p {
+	text-align: center;
+	font-size: 1.2em;
 }

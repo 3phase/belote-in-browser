@@ -7,16 +7,38 @@ $(document).ready(function() {
 	var userId = -1;
 	var canvasDefault = $(".game-container").clone();
 	
+	function addCardToCommonTable(mark, type, owner, cardItself) {
+		var commonDesk = $(".common-card-holder");
+		$(cardItself).remove();
+		commonDesk.append("<button class=\"card\" data-card-type=\"" + type + "\" " +
+					"data-card-mark=\"" + mark + "\" data-card-owner=\"" +
+							owner + "\">" + type + " " + mark
+							+ "</button>")
+	}
+	
+	function handleCardChoice() {
+		$(".card").on("click", function() {
+			// Get player whom turn ough to be next
+			if ($(this).attr("data-card-owner") != Cookies.get("user-token")) {
+				alert("It's not your turn!");
+			} else {
+				var cardType = $(this).attr("data-card-type");
+				var cardMark = $(this).attr("data-card-mark");
+				var cardOwner = $(this).attr("data-card-owner");
+				addCardToCommonTable(cardMark, cardType, cardOwner, $(this));
+			}
+		});
+	}
+	
 	function dumpCardsOnTable(cards, position) {
 		var specCardHolder = ".card-holder." + position;
 		var allCardHolders = $(".card-holder");
 		$.each(allCardHolders, function() {
-			for (var i = 0; i < 5; i++) {
+			for (var i = 0; i < 8; i++) {
 				$(this).append("<button class=\"unknown\" disabled>Unknown</button>");
 			}
 		});
 		$(specCardHolder).html("");
-//		$(specCardHolder).append("Az sam tuk");
 		cards = JSON.parse(cards);
 		$.each(cards, function(cardNum, data) {
 			var newCardUI = "<button class=\"card\" data-card-type=\"" + data.type + "\" " +
@@ -24,8 +46,8 @@ $(document).ready(function() {
 							data.owner + "\">" + data.type + " " + data.mark
 							+ "</button>";
 			$(specCardHolder).append(newCardUI);
-//			console.log(data.type);
 		});
+		handleCardChoice();
 	}
 	
 	function requestCards() {
