@@ -1,3 +1,6 @@
+body  {
+	background-image: linear-gradient(to bottom right, #000, #035803);
+}
 .navbar-inverse .navbar-brand {
 	font-family: 'Niconne', cursive;
 	color: #FFF;
@@ -8,6 +11,34 @@
 button:disabled {
 	color: #823333;
 	background-color: #E3E3E3;
+}
+
+.announce-bar, .game-container { 
+	background: #fff
+}
+
+button.announce-color {
+    height: 60px;
+    width: 40px;
+    margin: 4px;
+    background: #fff url(../img/card-suits.svg);
+    border: 1px solid #bbb;
+    background-size: cover;
+}
+
+/*button.announce-color.clubs { 
+	background-clip: content;    
+}*/
+
+button.announce-color.clubs::before {
+	position: absolute;
+	content: "";
+	z-index: 99;
+	width: 200px;
+	height: 50px;
+	background-position-x: 99%;
+    background-position-y: 136%;
+    background-size: 217%;
 }
 
 .announce-bar {
